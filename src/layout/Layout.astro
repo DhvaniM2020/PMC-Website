@@ -1,0 +1,25 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+---
+<!doctype html>
+<!-- We add data-theme here for daisyUI theming -->
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="A beautiful site built with Astro and Tailwind CSS" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-base-100">
+    <!-- The <slot /> is where your individual page content will be injected -->
+    <slot />
+  </body>
+</html>

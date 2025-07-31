@@ -1,15 +1,41 @@
 ---
-// src/components/Navbar.astro
 ---
-<div class="navbar bg-base-100 shadow-lg">
-  <div class="flex-1">
-    <a href="/" class="btn btn-ghost text-xl">AgriFuture</a>
+
+<header class="bg-white shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <!-- Left: Logo + Contact -->
+    <div class="flex items-center space-x-6">
+      <!-- Logo -->
+      <a href="/" class="text-green-700 text-xl font-bold">
+        🌿 Farmgera
+      </a>
+      <!-- Contact Info -->
+      <div class="hidden lg:flex flex-col text-sm text-gray-600">
+        <span>Email: info@farmgera.com</span>
+        <span>Call: +91 12345 67890</span>
+      </div>
+    </div>
+
+    <!-- Middle: Navigation -->
+    <nav class="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
+      <a href="#" class="hover:text-green-600">Home</a>
+      <a href="#" class="hover:text-green-600">Services</a>
+      <a href="#" class="hover:text-green-600">About Us</a>
+      <a href="#" class="hover:text-green-600">Pages</a>
+      <a href="#" class="hover:text-green-600">Shop</a>
+      <a href="#" class="hover:text-green-600">Contact</a>
+    </nav>
+
+    <!-- Right: Cart + Button -->
+    <div class="flex items-center space-x-4">
+      <!-- Cart icon (you can swap with an actual icon if using icon library) -->
+      <a href="#" class="text-xl text-gray-600 hover:text-green-600">🛒</a>
+
+      <!-- CTA Button -->
+      <a href="#"
+        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition">
+        Get Started
+      </a>
+    </div>
   </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/products">Products</a></li>
-    </ul>
-  </div>
-</div>
+</header>

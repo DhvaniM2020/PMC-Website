@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
-
+import '../components/Navbar.astro'
+import '../components/HeroSection.astro';
+import '../components/Footer.astro';
 export interface Props {
   title: string;
 }
@@ -9,7 +11,6 @@ const { title } = Astro.props;
 
 ---
 <!doctype html>
-<!-- We add data-theme here for daisyUI theming -->
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />

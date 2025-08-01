@@ -15,14 +15,14 @@ const services: CaseStudy[] = [
   {
     title: "Mega Food Park Projects",
     description: "As MoFPI-empanelled consultants, we guide you through the Mega Food Park scheme. We help secure viability gap funding of ₹50 Crores by providing turnkey solutions, from DPR preparation to securing backward and forward linkages.",
-    imageUrl: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=85&w=800",
+    imageUrl: "/image1.png",
     imageAlt: "A vibrant, modern farm with rows of crops under a clear sky.",
     link: "/services/mega-food-parks"
   },
   {
     title: `"Operation Greens" Scheme`,
     description: `Leverage the "Operation Greens" scheme for the Tomato, Onion, and Potato (TOP) value chain. We help you access this ₹500 crore initiative to protect farmers, stabilize prices, and reduce post-harvest losses.`,
-    imageUrl: "https://images.unsplash.com/photo-1599295642139-53b0a026c5a7?q=85&w=800",
+    imageUrl: "/image2.jpg",
     imageAlt: "A basket of fresh tomatoes, onions, and potatoes.",
     link: "/services/operation-greens",
     isReversed: true // This card will have the image on the left
@@ -30,14 +30,14 @@ const services: CaseStudy[] = [
   {
     title: "Integrated Cold Chain Projects",
     description: "Secure up to ₹10 Crores in funding under the MoFPI's Integrated Cold Chain scheme. We assist in establishing seamless farm-to-consumer infrastructure, including processing centers, reefer logistics, and distribution hubs.",
-    imageUrl: "https://images.unsplash.com/photo-1587049352851-d859d5b888d3?q=85&w=800",
+    imageUrl: "/image3.jpg",
     imageAlt: "Interior of a large, modern cold storage warehouse.",
     link: "/services/cold-chain"
   },
   {
     title: "Agro Processing Cluster Projects",
     description: "Develop a modern food processing hub with the APC scheme. We help establish clusters with shared infrastructure like cold storage, warehouses, and labs, linking farmers to processors and markets for enhanced efficiency.",
-    imageUrl: "https://images.unsplash.com/photo-1567098260393-294b3472b64b?q=85&w=800",
+    imageUrl: "/image4.png",
     imageAlt: "An aerial view of an industrial food processing facility.",
     link: "/services/apc-projects",
     isReversed: true // This card will also be reversed
@@ -45,7 +45,7 @@ const services: CaseStudy[] = [
   {
     title: "CEFPPC Scheme",
     description: "The CEFPPC scheme supports new and existing units to increase value addition and reduce waste. We help you secure grants covering plant & machinery and technical civil work to modernize your food processing capacities.",
-    imageUrl: "https://images.unsplash.com/photo-1615887295436-0b19738c92a9?q=85&w=800",
+    imageUrl: "/image5.png",
     imageAlt: "Stainless steel machinery in a clean food processing plant.",
     link: "/services/cefppc-scheme"
   },
@@ -57,7 +57,7 @@ const services: CaseStudy[] = [
     <!-- Section Title -->
     <div class="text-center">
       <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-        Our Services
+        Solutions in Action
       </h2>
       <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
     </div>
@@ -73,7 +73,7 @@ const services: CaseStudy[] = [
         >
           <!-- Image Section -->
           <div class="md:w-1/2">
-            <img class="object-cover w-full h-64 md:h-full" src={service.imageUrl} alt={service.imageAlt} />
+            <img class="object-cover w-full h-64 md:h-81" src={service.imageUrl} alt={service.imageAlt} />
           </div>
           
           <!-- Content Section -->

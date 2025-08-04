@@ -1,18 +1,21 @@
 ---
-/* You can import any images or icons if needed */
+const stats = [
+  { value: "₹5,000+ Cr", label: "Completed Projects" },
+  { value: "₹1,000 Cr", label: "Ongoing Projects" },
+  { value: "21+ States", label: "Pan-India Presence" },
+  { value: "10+ Years", label: "MoFPI & Cluster Expertise" },
+  { value: "Global Reach", label: "Offices in Japan, USA, Africa" },
+];
 ---
 
-<section id="about" class="py-20 bg-gray-50 sm:py-28">
+<!-- <section id="about" class="py-20 bg-gray-50 sm:py-28">
   <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
-    <!-- Section Title -->
     <div class="text-center">
       <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight">
         Who We Are
       </h2>
       <div class="w-24 h-1 mt-4 mx-auto bg-yellow-500 rounded-full"></div>
     </div>
-
-    <!-- Description -->
     <div class="mt-12 max-w-4xl mx-auto text-gray-700 text-lg leading-relaxed space-y-6 text-justify">
       <p>
         Established in <strong>November 2011</strong>, <span class="text-green-900 font-bold">Abhyuday</span> is a premier Project Management Consultancy (PMC) with over a decade of specialized experience in <strong>Agro and Food processing cluster development</strong> and <strong>MoFPI schemes</strong>.
@@ -21,8 +24,6 @@
         With a nationwide reach across <strong>21+ Indian states</strong>, including the North-East, and a global presence with offices in <strong>Japan, USA, and Africa</strong>, our commitment to excellence is reflected in over <strong>₹5,000 Cr of completed projects</strong> and <strong>₹1,000 Cr in ongoing initiatives</strong>.
       </p>
     </div>
-
-    <!-- Stats Grid -->
     <div class="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {[
         { value: '₹5,000+ Cr', label: 'Completed Projects' },
@@ -37,11 +38,114 @@
         </div>
       ))}
     </div>
-
-    <!-- Mission / CTA -->
     <p class="mt-16 text-center text-base italic text-gray-500">
       Empowering the food processing ecosystem — project by project, globally.
     </p>
   </div>
-</section>
+</section> -->
+<section id="about" class="relative  py-16 bg-white sm:py-24">
+  <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+    <!-- <div class="grid items-center gap-30 md:grid-cols-2"> -->
+<div class="grid items-center gap-20 md:grid-cols-5">
 
+      <!-- Left: Dual Images + Trusted Box + Circles -->
+      <!-- <div class="relative w-full md:mx-0"> -->
+<!-- Left (smaller) -->
+<div class="relative w-full md:col-span-2 md:mx-0">
+
+        <!-- Decorative Circles -->
+        <div
+          class="absolute top-[-40px] left-[-40px] w-28 h-28 border-2 rounded-full border-green-400 z-0"
+        >
+        </div>
+        <div
+          class="absolute top-[-20px] left-0 w-36 h-36 border-2 rounded-full border-green-200 z-0"
+        >
+        </div>
+
+        <!-- Image Stack -->
+        <!-- Shared Background Image Container -->
+<div class="relative z-10 h-[500px] rounded-xl shadow-lg overflow-hidden">
+  <!-- Blurred background -->
+  <div class="absolute inset-0 bg-[url('/robo.png')] bg-cover bg-center blur-md"></div>
+  
+  <!-- Clear sections (masks) -->
+  <div class="relative z-20 h-full p-4 flex flex-col justify-between space-y-6">
+    <!-- Top clear mask -->
+    <div class="flex-1 rounded-xl overflow-hidden">
+      <div class="absolute inset-0 bg-[url('/robo.png')] bg-cover bg-center [clip-path:inset(0_0_50%_0)]"></div>
+    </div>
+    
+    <!-- Bottom clear mask -->
+    <div class="flex-1 rounded-xl overflow-hidden">
+      <div class="absolute inset-0 bg-[url('/robo.png')] bg-cover bg-center [clip-path:inset(50%_0_0_0)]"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+        <!-- Trusted By Box -->
+        <div
+          class="absolute px-6 py-3 text-sm font-semibold text-green-600 bg-white rounded-xl shadow-xl bottom-10 right-[-40px] z-20 sm:text-base"
+        >
+          Trusted by <span class="text-2xl font-bold text-green-700">6400+</span
+          >
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <!-- <div class="relative"> -->
+      <!-- Right (larger) -->
+<div class="relative md:col-span-3">
+
+      <!-- Section Header -->
+
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Who We Are
+        </h2>
+        <div class="w-24 h-1 mx-0 mt-4 bg-yellow-500 rounded"></div>
+        <p class="mt-4 text-gray-600">
+          Established in <strong>November 2011</strong>, <span
+            class="text-green-900 font-bold">Abhyuday</span
+          > is a premier Project Management Consultancy (PMC) with over a decade
+          of specialized experience in <strong
+            >Agro and Food processing cluster development</strong
+          > and <strong>MoFPI schemes</strong>
+        </p>
+        <br />
+        <p class="mb-2 text-sm font-semibold text-yellow-600 uppercase tracking-wide">
+          With a nationwide reach across <strong>21+ Indian states</strong>,
+          including the North-East, and a global presence with offices in <strong
+            >Japan, USA, and Africa</strong
+          >, our commitment to excellence is reflected in over <strong
+            >₹5,000 Cr of completed projects</strong
+          > and <strong>₹1,000 Cr in ongoing initiatives</strong>
+        </p>
+
+        <!-- Stats Grid (Replacing feature icons) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {
+            stats.map((stat) => (
+              <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-center">
+                <h3 class="text-xl font-bold text-gray-900">{stat.value}</h3>
+                <p class="mt-2 text-sm text-gray-600">{stat.label}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- Bottom Right Decorative Lines -->
+        <div class="absolute bottom-[-2rem] right-0 flex items-end gap-2 mt-8">
+          <div class="w-90 h-2 bg-yellow-500 rounded-sm"></div>
+        </div>
+        <!-- Bottom Right Decorative Lines -->
+        <div class="absolute bottom-0 right-[-2rem] flex items-end gap-2 mt-8">
+
+          <div class="w-2 h-90 bg-green-600 rounded-sm"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

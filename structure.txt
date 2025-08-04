@@ -1,0 +1,38 @@
+Abhyuday-food
+│   ├── .astro
+│   │   ├── collections
+│   │   content-assets.mjs
+│   │   content-modules.mjs
+│   │   data-store.json
+│   │   settings.json
+│       types.d.ts
+│   .gitignore
+│   ├── .vscode
+│   │   extensions.json
+│       launch.json
+│   astro.config.mjs
+│   package-lock.json
+│   package.json
+│   ├── public
+│   │   Abhyuday-New-Logo.jpg
+│   │   favicon.svg
+│   │   image1.png
+│   │   image2.jpg
+│   │   image3.jpg
+│   │   image4.png
+│       image5.png
+│   README.md
+│   ├── src
+│   │   ├── components
+│   │   │   Casestudies.astro
+│   │   │   Footer.astro
+│   │   │   HeroSection.astro
+│   │       Navbar.astro
+│   │   ├── layout
+│   │       Layout.astro
+│   │   ├── pages
+│   │       index.astro
+│       ├── styles
+│           global.css
+│   struct.py
+    tsconfig.json

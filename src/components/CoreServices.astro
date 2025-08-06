@@ -23,8 +23,9 @@ layout: "../layouts/BaseLayout.astro";
     >
       <!-- CARD 1 -->
       <div
-        class="animated-card bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]"
-      >
+  class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-3000 hover:scale-[1.05]"
+>
+
         <!-- ... Card content ... -->
         <img
           src="/core1.png"
@@ -34,7 +35,7 @@ layout: "../layouts/BaseLayout.astro";
         <div
           class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
         >
-          <span class="text-green-600 text-xl">🌱</span>
+          <img src="/ser1.png" class="w-10 h-10" />
         </div>
         <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
           <h3 class="text-lg font-semibold mb-2">
@@ -49,13 +50,15 @@ layout: "../layouts/BaseLayout.astro";
             >LEARN MORE →</a
           >
         </div>
+        <span class="shimmer-light"></span>
+
       </div>
 
       <!-- ... Other cards are identical ... -->
 
       <!-- CARD 2 -->
       <div
-        class="animated-card bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]"
+        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-3000 hover:scale-[1.05]"
       >
         <img
           src="/core2.png"
@@ -65,7 +68,7 @@ layout: "../layouts/BaseLayout.astro";
         <div
           class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
         >
-          <span class="text-green-600 text-xl">🌱</span>
+          <img src="/ser2.png" class="w-9 h-9" />
         </div>
         <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
           <h3 class="text-lg font-semibold mb-2">
@@ -85,7 +88,7 @@ layout: "../layouts/BaseLayout.astro";
 
       <!-- CARD 3 -->
       <div
-        class="animated-card bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]"
+        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-3000 hover:scale-[1.05]"
       >
         <img
           src="/core3.png"
@@ -95,7 +98,7 @@ layout: "../layouts/BaseLayout.astro";
         <div
           class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
         >
-          <span class="text-green-600 text-xl">🌱</span>
+          <img src="/ser3.png" class="w-10 h-10" />
         </div>
         <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
           <h3 class="text-lg font-semibold mb-2">Supply Chain Development</h3>
@@ -111,7 +114,7 @@ layout: "../layouts/BaseLayout.astro";
 
       <!-- CARD 4 -->
       <div
-        class="animated-card bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]"
+        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-3000 hover:scale-[1.05]"
       >
         <img
           src="/core4.png"
@@ -121,7 +124,7 @@ layout: "../layouts/BaseLayout.astro";
         <div
           class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
         >
-          <span class="text-green-600 text-xl">🌱</span>
+          <img src="/ser4.png" class="w-10 h-10" />
         </div>
         <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
           <h3 class="text-lg font-semibold mb-2">Marketing & Certification</h3>
@@ -156,25 +159,38 @@ layout: "../layouts/BaseLayout.astro";
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const grid = document.getElementById("services-grid");
+
     if (!grid) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, observer) => {
         const entry = entries[0];
 
         if (entry.isIntersecting) {
+          // 1. Add the visible class for fade/translate effect
           entry.target.classList.add("cards-visible");
-        } else {
-          entry.target.classList.remove("cards-visible");
+
+          // 2. Trigger shimmer on all cards simultaneously
+          const shimmers = entry.target.querySelectorAll(".shimmer-light");
+          shimmers.forEach((shimmer) => {
+            shimmer.classList.add("animate");
+
+            // Remove the animation class after it's done (optional)
+            shimmer.addEventListener("animationend", () => {
+              shimmer.classList.remove("animate");
+            }, { once: true });
+          });
+
+          // 3. Stop observing to trigger only once
+          observer.unobserve(entry.target);
         }
       },
       {
-        // Trigger when 20% of the grid container is visible
         threshold: 0.2,
       }
     );
 
-    // Start observing the grid container
     observer.observe(grid);
   });
 </script>
+

@@ -1,101 +1,180 @@
 ---
-layout: "../layouts/BaseLayout.astro"
+layout: "../layouts/BaseLayout.astro";
 ---
-<!-- < class="absolute inset-0 z-0 bg-gradient-to-b from-white via-white to-[#e6f4d6]"> -->
-<section class="py-12  bg-gradient-to-b from-white via-white to-[#e6f4d6]">
+
+<section
+  id="CoreServices"
+  class="h-[100vh] flex items-center bg-gradient-to-b from-white via-white to-[#e6f4d6] overflow-x-hidden"
+>
   <div class="container mx-auto px-4">
-    <div class="text-center mb-15">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" style="font-family: 'Poppins'">
+    <div class="text-center mb-16">
+      <h2
+        class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+        style="font-family: 'Poppins'"
+      >
         What We Offer
       </h2>
       <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div
+      id="services-grid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+    >
       <!-- CARD 1 -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]">
-        <!-- Card Image -->
-        <img src="/core1.png" alt="Agricultural Product" class="w-full h-60 object-cover">
-
-        <!-- Circular Icon (half-overlapping) -->
-        <div class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white">
-            <span class="text-green-600 text-xl">🌱</span>
+      <div
+        class="animated-card bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]"
+      >
+        <!-- ... Card content ... -->
+        <img
+          src="/core1.png"
+          alt="Agricultural Product"
+          class="w-full h-60 object-cover"
+        />
+        <div
+          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
+        >
+          <span class="text-green-600 text-xl">🌱</span>
         </div>
-
-        <!-- Text Content -->
         <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-            <h3 class="text-lg font-semibold mb-2">Project Planning & Consultancy</h3>
-            <p class="text-sm text-gray-600 mb-4">Feasibility Studies, Detailed Project Reports (DPRs), TEV (Techno-Economic Viability) Studies, Expression of Interest (EOI) and Tender Preparation and Submission.</p>
-            <a href="#" class="text-green-600 font-semibold  mt-auto">LEARN MORE →</a>
+          <h3 class="text-lg font-semibold mb-2">
+            Project Planning & Consultancy
+          </h3>
+          <p class="text-sm text-gray-600 mb-4">
+            Feasibility Studies, Detailed Project Reports (DPRs), TEV
+            (Techno-Economic Viability) Studies, Expression of Interest (EOI)
+            and Tender Preparation and Submission.
+          </p>
+          <a href="#" class="text-green-600 font-semibold mt-auto"
+            >LEARN MORE →</a
+          >
         </div>
-    </div>
+      </div>
 
+      <!-- ... Other cards are identical ... -->
 
       <!-- CARD 2 -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]">
-        <!-- Card Image -->
-        <img src="/core2.png" alt="Agricultural Product" class="w-full h-60 object-cover">
-
-        <!-- Circular Icon (half-overlapping) -->
-        <div class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white">
-            <span class="text-green-600 text-xl">🌱</span>
+      <div
+        class="animated-card bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]"
+      >
+        <img
+          src="/core2.png"
+          alt="Agricultural Product"
+          class="w-full h-60 object-cover"
+        />
+        <div
+          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
+        >
+          <span class="text-green-600 text-xl">🌱</span>
         </div>
-
-        <!-- Text Content -->
         <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-            <h3 class="text-lg font-semibold mb-2">Infrastructure & Technology Design</h3>
-            <p class="text-sm text-gray-600 mb-4">Design of post-harvest storage and preservation systems. Setup of Primary Processing Centres. Design of Pre-Cooling, Cold Storage, and Logistics chains. Machinery layout, selection, and installation support</p>
-            <a href="#" class="text-green-600 font-semibold mt-auto">LEARN MORE →</a>
+          <h3 class="text-lg font-semibold mb-2">
+            Infrastructure & Technology Design
+          </h3>
+          <p class="text-sm text-gray-600 mb-4">
+            Design of post-harvest storage and preservation systems. Setup of
+            Primary Processing Centres. Design of Pre-Cooling, Cold Storage, and
+            Logistics chains. Machinery layout, selection, and installation
+            support
+          </p>
+          <a href="#" class="text-green-600 font-semibold mt-auto"
+            >LEARN MORE →</a
+          >
         </div>
-    </div>
+      </div>
 
       <!-- CARD 3 -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]">
-  <!-- Card Image -->
-  <img src="/core3.png" alt="Agricultural Product" class="w-full h-60 object-cover">
-
-  <!-- Circular Icon (half-overlapping) -->
-  <div class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white">
-    <span class="text-green-600 text-xl">🌱</span>
-  </div>
-
-  <!-- Text Content -->
-  <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-    <h3 class="text-lg font-semibold mb-2">Supply Chain Development</h3>
-    <p class="text-sm text-gray-600 mb-4">
-      Backward linkages (e.g. Contract Farming), Forward linkages (e.g. market integration, exports) and Complete farm-to-market solutions
-    </p>
-    <a href="#" class="text-green-600 font-semibold mt-auto">LEARN MORE →</a>
-  </div>
-</div>
-
+      <div
+        class="animated-card bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]"
+      >
+        <img
+          src="/core3.png"
+          alt="Agricultural Product"
+          class="w-full h-60 object-cover"
+        />
+        <div
+          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
+        >
+          <span class="text-green-600 text-xl">🌱</span>
+        </div>
+        <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
+          <h3 class="text-lg font-semibold mb-2">Supply Chain Development</h3>
+          <p class="text-sm text-gray-600 mb-4">
+            Backward linkages (e.g. Contract Farming), Forward linkages (e.g.
+            market integration, exports) and Complete farm-to-market solutions
+          </p>
+          <a href="#" class="text-green-600 font-semibold mt-auto"
+            >LEARN MORE →</a
+          >
+        </div>
+      </div>
 
       <!-- CARD 4 -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]">
-        <!-- Card Image -->
-        <img src="/core4.png" alt="Agricultural Product" class="w-full h-60 object-cover">
-
-        <!-- Circular Icon (half-overlapping) -->
-        <div class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white">
-            <span class="text-green-600 text-xl">🌱</span>
+      <div
+        class="animated-card bg-white rounded-lg shadow-md overflow-hidden relative flex flex-col h-[480px]"
+      >
+        <img
+          src="/core4.png"
+          alt="Agricultural Product"
+          class="w-full h-60 object-cover"
+        />
+        <div
+          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
+        >
+          <span class="text-green-600 text-xl">🌱</span>
         </div>
-
-        <!-- Text Content -->
         <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-            <h3 class="text-lg font-semibold mb-2">Marketing & Certification</h3>
-            <p class="text-sm text-gray-600 mb-4">Product development and branding. Assistance with quality certifications (ISO, FSSAI, etc.)</p>
-            
-            <a href="#" class="text-green-600 font-semibold mt-auto">LEARN MORE →</a>
+          <h3 class="text-lg font-semibold mb-2">Marketing & Certification</h3>
+          <p class="text-sm text-gray-600 mb-4">
+            Product development and branding. Assistance with quality
+            certifications (ISO, FSSAI, etc.)
+          </p>
+          <a href="#" class="text-green-600 font-semibold mt-auto"
+            >LEARN MORE →</a
+          >
         </div>
-    </div>
-
-
-    </div>
-
-    <div class="mt-15 text-center">
-      <a href="#" class="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 transition duration-300 text-lg">
-        All Services &nbsp; ↗
-      </a>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .animated-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+  }
+
+  #services-grid.cards-visible .animated-card {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const grid = document.getElementById("services-grid");
+    if (!grid) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("cards-visible");
+        } else {
+          entry.target.classList.remove("cards-visible");
+        }
+      },
+      {
+        // Trigger when 20% of the grid container is visible
+        threshold: 0.2,
+      }
+    );
+
+    // Start observing the grid container
+    observer.observe(grid);
+  });
+</script>

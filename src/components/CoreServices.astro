@@ -185,7 +185,7 @@ layout: "../layouts/BaseLayout.astro";
           });
 
           // 3. Stop observing to trigger only once
-          observer.unobserve(entry.target);
+          observer.observe(entry.target);
         }
       },
       {

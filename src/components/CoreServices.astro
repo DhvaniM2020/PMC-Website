@@ -23,7 +23,7 @@ layout: "../layouts/BaseLayout.astro";
     >
       <!-- CARD 1 -->
       <div
-  class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-3000 hover:scale-[1.05]"
+  class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-300 ease-in-out hover:scale-[1.05]"
 >
 
         <!-- ... Card content ... -->
@@ -58,7 +58,7 @@ layout: "../layouts/BaseLayout.astro";
 
       <!-- CARD 2 -->
       <div
-        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-3000 hover:scale-[1.05]"
+        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-300 ease-in-out hover:scale-[1.05]"
       >
         <img
           src="/core2.png"
@@ -89,7 +89,7 @@ layout: "../layouts/BaseLayout.astro";
 
       <!-- CARD 3 -->
       <div
-        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-3000 hover:scale-[1.05]"
+        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-300 ease-in-out hover:scale-[1.05]"
       >
         <img
           src="/core3.png"
@@ -116,7 +116,7 @@ layout: "../layouts/BaseLayout.astro";
 
       <!-- CARD 4 -->
       <div
-        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-3000 hover:scale-[1.05]"
+        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[480px] transition-transform duration-300 ease-in-out hover:scale-[1.05]"
       >
         <img
           src="/core4.png"
@@ -146,17 +146,18 @@ layout: "../layouts/BaseLayout.astro";
 
 <style>
   .animated-card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.7s ease-out,
-      transform 0.7s ease-out;
-  }
+  opacity: 0;
+  transform: translateY(20px) scale(1); /* Start at normal scale */
+  transition:
+    opacity 0.7s ease-out,
+    
+}
 
-  #services-grid.cards-visible .animated-card {
-    opacity: 1;
-    transform: translateY(0);
-  }
+#services-grid.cards-visible .animated-card {
+  opacity: 1;
+  transform: translateY(0) scale(1); /* Ensure scale stays consistent */
+}
+
 </style>
 
 <script>

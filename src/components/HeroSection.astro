@@ -6,56 +6,69 @@ export interface Props {
 }
 
 const defaultImages = [
-  'https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1974&auto=format&fit=crop', // A landscape-oriented image
-  'https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1887&auto=format&fit=crop', // A portrait-oriented image
-  'https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070&auto=format&fit=crop'  // Another landscape image
+  "https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1974&auto=format&fit=crop", // A landscape-oriented image
+  "https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1887&auto=format&fit=crop", // A portrait-oriented image
+  "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070&auto=format&fit=crop", // Another landscape image
 ];
 
 const { images = defaultImages } = Astro.props;
 ---
 
 <section class="relative flex overflow-hidden h-[91vh]">
-
   <div class="absolute inset-0 z-[-1]">
-    {images.map((src, index) => (
-      <img
-        src={src}
-        alt={`Background slide ${index + 1}`}
-        class:list={[
-          "bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out",
-          index === 0 ? 'opacity-100' : 'opacity-0'
-        ]}
-      />
-    ))}
+    {
+      images.map((src, index) => (
+        <img
+          src={src}
+          alt={`Background slide ${index + 1}`}
+          class:list={[
+            "bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out",
+            index === 0 ? "opacity-100" : "opacity-0",
+          ]}
+        />
+      ))
+    }
     <!-- Add a dark overlay to make text more readable -->
     <div class="absolute inset-0 bg-black/50"></div>
   </div>
 
   <!-- 2. Hero Content -->
   <!-- The z-10 ensures this content is on top of the background -->
-  <div class="relative flex justify-center items-center z-10 w-full h-full mx-auto px-6">
-    <div class="max-w-2xl text-center" style="font-family: 'Poppins', sans-serif;">
-      <h1 class="text-4xl font-bold text-white md:text-5xl lg:text-6xl leading-17 ">
-        Innovating the Future of <span class="text-primary">Agriculture</span>
-        <!-- <div class="relative h-12 overflow-hidden text-white text-3xl font-bold leading-tight">
-  <ul class="animate-slide-words space-y-2">
+  <div
+    class="relative flex justify-center items-center z-10 w-full h-full mx-auto px-6"
+  >
+    <div
+      class="max-w-2xl text-center"
+      style="font-family: 'Poppins', sans-serif;"
+    >
+      <h1 class="text-4xl font-bold text-white md:text-5xl lg:text-6xl leading-tight">
+  Innovating the future of&nbsp;
+  <span class="inline-block h-10 overflow-hidden relative">
+  <ul class="vertical-slider text-white text-xl font-semibold">
     <li>Agriculture</li>
     <li>Technology</li>
     <li>Sustainability</li>
     <li>Growth</li>
-    <li aria-hidden="true">Agriculture</li> <!-- cloned first item -->
+    <li aria-hidden="true">Agriculture</li> <!-- for seamless loop -->
   </ul>
-</div> -->
-      </h1>
+</span>
+
+
+
+
+</h1>
+
       <p class="mt-6 text-gray-200 text-lg">
-        Harnessing technology to build a sustainable and productive future for farming worldwide.
+        Harnessing technology to build a sustainable and productive future for
+        farming worldwide.
       </p>
-      <button class="mt-8 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-medium transition-transform transform ">
+      <button
+        class="mt-8 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-medium transition-transform transform"
+      >
         Discover Our Solutions
       </button>
     </div>
   </div>
-
 </section>
 
 <!-- 3. The JavaScript to power the slider -->
@@ -63,8 +76,8 @@ const { images = defaultImages } = Astro.props;
   // A good practice: wrap the logic in a function to avoid polluting the global scope
   function setupImageSlider() {
     // Select all the images with the .bg-slide class
-    const slides = document.querySelectorAll('.bg-slide');
-    
+    const slides = document.querySelectorAll(".bg-slide");
+
     // If there's only one slide (or none), no need to run the interval
     if (slides.length <= 1) {
       return;
@@ -74,15 +87,15 @@ const { images = defaultImages } = Astro.props;
 
     function showNextSlide() {
       // Hide the current slide with a fade-out effect
-      slides[currentIndex].classList.remove('opacity-100');
-      slides[currentIndex].classList.add('opacity-0');
+      slides[currentIndex].classList.remove("opacity-100");
+      slides[currentIndex].classList.add("opacity-0");
 
       // Calculate the index of the next slide, looping back to 0
       currentIndex = (currentIndex + 1) % slides.length;
 
       // Show the next slide with a fade-in effect
-      slides[currentIndex].classList.remove('opacity-0');
-      slides[currentIndex].classList.add('opacity-100');
+      slides[currentIndex].classList.remove("opacity-0");
+      slides[currentIndex].classList.add("opacity-100");
     }
 
     // Change slide every 5 seconds (5000 milliseconds)
@@ -93,33 +106,50 @@ const { images = defaultImages } = Astro.props;
   setupImageSlider();
 </script>
 
-<style>
-  @keyframes slideMask {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
+<style is:global>
+  /* Keyframes for smooth horizontal sliding */
+  @keyframes slide-vertical {
+  0%   { transform: translateY(0%); }
+  20%  { transform: translateY(-100%); }
+  40%  { transform: translateY(-200%); }
+  60%  { transform: translateY(-300%); }
+  80%  { transform: translateY(-400%); }
+  100% { transform: translateY(-500%); }
+}
 
-  .slide-mask {
-    background: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
-    animation: slideMask 2s ease-out forwards;
-  }
+.animate-slide-vertical {
+  display: inline-block;
+  animation: slide-vertical 10s ease-in-out infinite;
+  line-height: 1.2;
+}
+.vertical-slider {
+  display: flex;
+  flex-direction: column;
+  animation: slideWords 8s ease-in-out infinite;
+}
 
-  .animate-slide-reveal {
-    background-size: 300%;
-    background-position: 100% 0;
-    animation: shimmerText 2s ease-out forwards;
-  }
+.vertical-slider li {
+  height: 2.5rem; /* Adjust based on container height */
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
 
-  @keyframes shimmerText {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: 0% 0;
-    }
-  }
+@keyframes slideWords {
+  0% { transform: translateY(0); }
+  20% { transform: translateY(0); }
+
+  25% { transform: translateY(-2.5rem); }
+  45% { transform: translateY(-2.5rem); }
+
+  50% { transform: translateY(-5rem); }
+  70% { transform: translateY(-5rem); }
+
+  75% { transform: translateY(-7.5rem); }
+  95% { transform: translateY(-7.5rem); }
+
+  100% { transform: translateY(-10rem); }
+}
+
 </style>
+

@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "start": "astro preview --host 0.0.0.0 --port $PORT --allowed-hosts all"
+    "start": "astro preview --host 0.0.0.0 --port $PORT --allowed-hosts pmc-website-2.onrender.com"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",

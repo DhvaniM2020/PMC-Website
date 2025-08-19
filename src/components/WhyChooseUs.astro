@@ -1,0 +1,66 @@
+---
+// src/components/WhyChooseUs.astro
+import { Image } from 'astro:assets';
+import pyramidImage from '/public/WhyChooseUs.png';
+---
+
+<style>
+  .why-choose-us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .text-content {
+    padding-right: 2rem;
+  }
+
+  .text-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .text-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .why-choose-us {
+      grid-template-columns: 1fr;
+    }
+    .text-content {
+      padding-right: 0;
+    }
+  }
+</style>
+
+<section class="why-choose-us font-bold font">
+  <div class="text-content">
+    <h2>Why Choose Us?</h2>
+    <h3>Expert Business Advice</h3>
+    <p>
+      At Abhyuday, we turn vision into reality. Backed by decades of experience, our team of technocrats, financial experts, and engineers delivers data-driven insights, strategic guidance, and seamless execution. From governments to startups, we craft tailored solutions that drive growth, reduce risk, and ensure long-term success.
+    </p>
+  </div>
+  <div class="image-container">
+    <Image 
+      src={pyramidImage} 
+      alt="A pyramid diagram showing key values: Client-Focused, Sustainable, Comprehensive, and Expertise." 
+      widths={[300, 600, 900]}
+      sizes="(max-width: 768px) 100vw, 50vw"
+      loading="eager"
+      quality={90}
+    />
+  </div>
+</section>

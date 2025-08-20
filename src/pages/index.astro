@@ -11,22 +11,25 @@ import CoreServices from '../components/CoreServices.astro';
 import ProjectMaps from '../components/ProjectsMap.astro'
 import Newsletter from '../components/Newsletter.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
-
+import PMC_cycle from '../components/PMC_cycle.astro';
+import Clients from '../components/clients.astro';
 ---
 
 <Layout title="Agro and Food: Abhyuday | Home">
 
   <!-- A wrapper div can be useful for flex-column layouts -->
   <div class="flex flex-col min-h-screen">
-    <main>
       <HeroSection />
       <AboutUs />
       <CoreServices />
+      <PMC_cycle />
+      
       <Casestudies />
       <WhyChooseUs/>
       <!-- <ProjectMaps /> -->
       <Newsletter />
       <Empanelment />
+      <Clients />
     </main>
   </div>
 </MainLayout>

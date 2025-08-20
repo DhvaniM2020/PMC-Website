@@ -1,20 +1,16 @@
----
----
 <header id="navbar" class="sticky top-0 z-50 bg-white transition-all duration-300 shadow">
   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
     <!-- Logo + Contact -->
     <div class="flex items-center space-x-6">
       <a href="/" class="flex items-center space-x-2">
-  <img src="/Abhyuday-New-Logo.jpg" alt="Abhyuday Logo" class="rounded-full h-18 w-auto transition-transform duration-300 ease-in-out hover:scale-120" />
-  <span
-  class="text-blue-600 font-medium tracking-normal"
-  style="font-family: 'poppins';  font-size: clamp(0.8rem, 1.8vw, 1.8rem);"
->
- ABHYUDAY BHARAT PROJECTS
-</span>
-
-</a>
-      
+        <img src="/Abhyuday-New-Logo.jpg" alt="Abhyuday Logo" class="rounded-full h-18 w-auto transition-transform duration-300 ease-in-out hover:scale-120" />
+        <span
+          class="text-blue-600 font-bold tracking-normal"
+          style="font-family: 'poppins';  font-size: clamp(0.8rem, 1.8vw, 1.8rem);"
+        >
+          ABHYUDAY BHARAT PROJECTS
+        </span>
+      </a>
     </div>
 
     <!-- Nav -->
@@ -22,12 +18,12 @@
       <a href="#" class="hover:text-blue-600" style="font-family: 'Poppins'">Home</a>
       <a href="#about" class="hover:text-blue-600" style="font-family: 'Poppins'">About Us</a>
       <a href="#CoreServices" class="hover:text-blue-600" style="font-family: 'Poppins'">Our Sectors</a>
-      <a href="#Casestudies" class="hover:text-blue-600"   style="font-family: 'Poppins'">Projects</a>
+      <a href="#Casestudies" class="hover:text-blue-600"   style="font-family: 'Poppins'">Projects</a>
       <!-- <a href="#location" class="hover:text-blue-600" style="font-family: 'Poppins'">Location</a> -->
     </nav>
 
     <div class="flex items-center space-x-6">
-      <a href="#contact" class="bg-blue-600 hover:b g-green-700 text-white px-4 py-2 rounded-md  text-md font-medium transition hover:scale-107"
+      <a href="#contact" class="bg-blue-600 hover:b g-green-700 text-white px-4 py-2 rounded-md  text-md font-medium transition hover:scale-107"
       style="font-family: 'Poppins'">
         Contact Us
       </a>
@@ -38,12 +34,14 @@
 <script>
   window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('bg-white/70', 'backdrop-blur-md');
-      navbar.classList.remove('bg-white');
-    } else {
-      navbar.classList.remove('bg-white/70', 'backdrop-blur-md');
-      navbar.classList.add('bg-white');
+    if (navbar) { // Check if navbar is not null
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white/70', 'backdrop-blur-md');
+        navbar.classList.remove('bg-white');
+      } else {
+        navbar.classList.remove('bg-white/70', 'backdrop-blur-md');
+        navbar.classList.add('bg-white');
+      }
     }
   });
 </script>

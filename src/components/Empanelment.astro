@@ -1,4 +1,4 @@
----
+<!-- ---
 // Define the structure for each empanelment item for clarity.
 interface Logo {
   name: string;
@@ -7,10 +7,12 @@ interface Logo {
 
 const logos: Logo[] = [
   { name: "Ministry of Food Processing Industry", logoUrl: "/mofpi-logo.jpg" },
-  { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
   { name: "Gujarat Agro Industries Corporation", logoUrl: "/images.png" },
-  { name: "GUJCOMASOL", logoUrl: "/Gujcomasol.png" },
+  { name: "GUJCOMASOL", logoUrl: "/100-5.png" },
   { name: "INDEXT-b", logoUrl: "/indexta.png" },
+  { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
+  { name: "Andra Bank", logoUrl: "/Andra bank.png" },
+  { name: "PMFME", logoUrl: "/PMFME.png" },
 ];
 
 // Array of your key partnerships, directly from your provided image.
@@ -51,13 +53,56 @@ const partnerships: Partnership[] = [
       {logos.map((logo) => (
         <div class="col-span-1 flex justify-center">
           <img
-            class="h-12 max-h-12 w-auto object-contain  opacity-70 transition-all duration-300 hover:-0 hover:opacity-100"
+            class="h-20 max-h-50 w-auto object-contain  opacity-70 transition-all duration-300 hover:-0 hover:opacity-100"
             src={logo.logoUrl}
             alt={logo.name}
             title={logo.name}
           />
         </div>
       ))}
+    </div>
+  </div>
+</div> -->
+---
+interface Logo {
+  name: string;
+  logoUrl: string;
+}
+
+const logos: Logo[] = [
+  { name: "Ministry of Food Processing Industry", logoUrl: "/mofpi-logo.jpg" },
+  { name: "Gujarat Agro Industries Corporation", logoUrl: "/images.png" },
+  { name: "GUJCOMASOL", logoUrl: "/100-5.png" },
+  { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
+  { name: "INDEXT-b", logoUrl: "/indexta.png" },
+    { name: "PMFME", logoUrl: "/PMFME.png" },
+  { name: "Andra Bank", logoUrl: "/Andra bank.png" },
+
+];
+---
+
+<div id="empanelment" class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h3 class="font-semibold text-gray-600 tracking-wider uppercase">
+        In partnership with key government & financial institutions
+      </h3>
+    </div>
+
+    <!-- Horizontal Scroll Container -->
+    <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+      <div class="flex space-x-10 px-4">
+        {logos.map((logo) => (
+          <div class="flex-shrink-0 flex justify-center items-center">
+            <img
+              class="h-24 w-auto object-contain opacity-80 transition-all duration-300 hover:opacity-100"
+              src={logo.logoUrl}
+              alt={logo.name}
+              title={logo.name}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </div>

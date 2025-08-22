@@ -10,7 +10,6 @@ interface CaseStudy {
 }
 
 // Array of your service/case study data.
-// This makes it easy to add, remove, or reorder items later.
 const services: CaseStudy[] = [
   {
     title: "Mega Food Park Projects",
@@ -25,7 +24,7 @@ const services: CaseStudy[] = [
     imageUrl: "/download.jpg",
     imageAlt: "A basket of fresh tomatoes, onions, and potatoes.",
     link: "/services/operation-greens",
-    isReversed: true // This card will have the image on the left
+    isReversed: true
   },
   {
     title: "Paithan Mega Food Park",
@@ -40,23 +39,16 @@ const services: CaseStudy[] = [
     imageUrl: "/image4.png",
     imageAlt: "An aerial view of an industrial food processing facility.",
     link: "/services/apc-projects",
-    isReversed: true // This card will also be reversed
+    isReversed: true
   },
-  // {
-  //   title: "CEFPPC Scheme",
-  //   description: "The CEFPPC scheme supports new and existing units to increase value addition and reduce waste. We help you secure grants covering plant & machinery and technical civil work to modernize your food processing capacities.",
-  //   imageUrl: "/image5.png",
-  //   imageAlt: "Stainless steel machinery in a clean food processing plant.",
-  //   link: "/services/cefppc-scheme"
-  // },
 ];
 ---
 
-<section id="Casestudies" class="py-16 bg-gray-50 sm:py-24">
-  <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8" >
+<section id="Casestudies" class="py-16 bg-gray-50 sm:py-24" style="font-family: 'Poppins'">
+  <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
     <!-- Section Title -->
     <div class="text-center">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" style="font-family: 'Poppins'">
+      <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
         Solutions in Action
       </h2>
       <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
@@ -65,9 +57,9 @@ const services: CaseStudy[] = [
     <!-- Cards Container -->
     <div class="mt-16 space-y-16">
       {services.map((service) => (
-        <article
+       <article
   class:list={[
-    "flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-80", // fixed height
+    "group flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-80",
     { "md:flex-row-reverse": service.isReversed }
   ]}
 >
@@ -82,14 +74,19 @@ const services: CaseStudy[] = [
 
   <!-- Content Section -->
   <div class="flex flex-col justify-center p-8 md:w-1/2 sm:p-12 h-40 md:h-full">
-    <h3 class="text-2xl font-bold text-gray-900" style="font-family: 'Poppins'">
+    <h3 class="text-2xl font-bold text-gray-900">
       {service.title}
     </h3>
-    <p class="mt-4 text-base leading-relaxed text-gray-600" style="font-family: 'Poppins'">
+    <p
+      class="mt-4 text-base leading-relaxed text-gray-600 line-clamp-3 group-hover:line-clamp-none transition-all duration-300"
+    >
       {service.description}
     </p>
     <div class="mt-6">
-      <a href={service.link} class="inline-block px-6 py-3 font-semibold text-gray-800 transition bg-transparent border border-gray-400 rounded-full hover:bg-blue-500 hover:text-white hover:border-blue-500" style="font-family: 'Poppins'">
+      <a
+        href={service.link}
+        class="inline-block px-6 py-3 font-semibold text-gray-800 transition bg-transparent border border-gray-400 rounded-full hover:bg-blue-500 hover:text-white hover:border-blue-500"
+      >
         Learn More
       </a>
     </div>

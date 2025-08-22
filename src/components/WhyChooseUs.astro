@@ -5,6 +5,8 @@ import pyramidImage from '/public/WhyChooseUs.png';
 ---
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
   .why-choose-us {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -13,6 +15,7 @@ import pyramidImage from '/public/WhyChooseUs.png';
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins to whole section */
   }
 
   .text-content {
@@ -45,11 +48,13 @@ import pyramidImage from '/public/WhyChooseUs.png';
   }
 </style>
 
-<section class="why-choose-us font-bold font">
+<section class="why-choose-us">
   <div class="text-content">
-    <h2>Why Choose Us?</h2>
+    <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+      Why Choose Us?
+    </h2>
     <h3>Expert Business Advice</h3>
-    <p class="font-semibold poppins text-gray-600 tracking-wider ">
+    <p class="text-gray-600 tracking-wider font-s">
       At Abhyuday, we turn vision into reality. Backed by decades of experience, our team of technocrats, financial experts, and engineers delivers data-driven insights, strategic guidance, and seamless execution. From governments to startups, we craft tailored solutions that drive growth, reduce risk, and ensure long-term success.
     </p>
   </div>

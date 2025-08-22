@@ -1,5 +1,4 @@
-<!-- ---
-// Define the structure for each empanelment item for clarity.
+---
 interface Logo {
   name: string;
   logoUrl: string;
@@ -9,83 +8,18 @@ const logos: Logo[] = [
   { name: "Ministry of Food Processing Industry", logoUrl: "/mofpi-logo.jpg" },
   { name: "Gujarat Agro Industries Corporation", logoUrl: "/images.png" },
   { name: "GUJCOMASOL", logoUrl: "/100-5.png" },
-  { name: "INDEXT-b", logoUrl: "/indexta.png" },
   { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
-  { name: "Andra Bank", logoUrl: "/Andra bank.png" },
+  { name: "INDEXT-b", logoUrl: "/indexta.png" },
   { name: "PMFME", logoUrl: "/PMFME.png" },
-];
-
-// Array of your key partnerships, directly from your provided image.
-const partnerships: Partnership[] = [
-  {
-    title: "Ministry of Food Processing Industry (MoFPI)",
-    description: "Empaneled as Project Management Consultants of Mega Food Parks.",
-  },
-  {
-    title: "Panel Consultant for TEV Study",
-    description: "Empaneled for Techno-Economic Viability (TEV) study of projects for:",
-    subItems: ["Bank of Baroda", "Andhra Bank", "Mehsana Urban Co-operative Bank"],
-  },
-  {
-    title: "Gujarat Government & GAIC Appointments",
-    description: "Appointed for key state-level implementation roles:",
-    subItems: [
-      "SPMU (State Project Management Unit) by GAIC for the PMFME scheme.",
-      "CBBO (Cluster-Based Business Organization) by GAIC for promoting FPOs.",
-      "MoU with Govt. of Gujarat & INDEXT-a to run a dedicated industry helpdesk."
-    ]
-  },
-  {
-    title: "Turnkey Advisor to GUJCOMASOL",
-    description: "Appointed for their upcoming Agro & Food Processing Projects with an estimated project cost of more than ₹300 Crore.",
-  },
-];
----
-
-<div id="empanelment" class="py-12 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
-    <div class="text-center mb-10">
-      <h3 class="font-semibold text-gray-600 tracking-wider uppercase">
-        In partnership with key government & financial institutions
-      </h3>
-    </div>
-    <div class="grid grid-cols-2 gap-8 md:grid-cols-5 items-center">
-      {logos.map((logo) => (
-        <div class="col-span-1 flex justify-center">
-          <img
-            class="h-20 max-h-50 w-auto object-contain  opacity-70 transition-all duration-300 hover:-0 hover:opacity-100"
-            src={logo.logoUrl}
-            alt={logo.name}
-            title={logo.name}
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-</div> -->
----
-interface Logo {
-  name: string;
-  logoUrl: string;
-}
-
-const logos: Logo[] = [
-  { name: "Ministry of Food Processing Industry", logoUrl: "/mofpi-logo.jpg" },
-  { name: "Gujarat Agro Industries Corporation", logoUrl: "/images.png" },
-  { name: "GUJCOMASOL", logoUrl: "/100-5.png" },
-  { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
-  { name: "INDEXT-b", logoUrl: "/indexta.png" },
-    { name: "PMFME", logoUrl: "/PMFME.png" },
   { name: "Andra Bank", logoUrl: "/Andra bank.png" },
-
 ];
 ---
 
-<div id="empanelment" class="py-12 bg-white">
+<div id="empanelment" class="py-12 bg-white" style={{ fontFamily: "Poppins, sans-serif" }}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10">
-      <h3 class="font-semibold text-gray-600 tracking-wider uppercase">
-        In partnership with key government & financial institutions
+      <h3 class="text-4xl font-bold text-black tracking-wider sm:text-3xl">
+        In Partnership with key Government & Financial Institutions
       </h3>
     </div>
 

@@ -15,21 +15,36 @@ const logos: Logo[] = [
 ];
 ---
 
-<div id="empanelment" class="py-12 bg-white" style={{ fontFamily: "Poppins, sans-serif" }}>
+<div id="empanelment" class="py-12 bg-white" style="font-family: Poppins, sans-serif">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10">
-      <h3 class="text-4xl font-bold text-black tracking-wider sm:text-3xl">
+      <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black tracking-wider">
         In Partnership with key Government & Financial Institutions
       </h3>
     </div>
 
-    <!-- Horizontal Scroll Container -->
-    <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
-      <div class="flex space-x-10 px-4">
+    <!-- Desktop / Big Screen (Static Grid) -->
+    <div class="hidden md:grid grid-cols-7 gap-4 items-center justify-center">
+      {logos.map((logo) => (
+        <div class="flex justify-center items-center">
+          <img
+            class="h-30 w-auto object-contain opacity-80 transition-all duration-300 hover:opacity-100"
+            src={logo.logoUrl}
+            alt={logo.name}
+            title={logo.name}
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Mobile / Small Screen (Horizontal Scroll with Arrows) -->
+    <div class="relative md:hidden">
+      <!-- Scrollable Container -->
+      <div id="logoScroll" class="flex overflow-x-auto gap-6 scrollbar-hide scroll-smooth px-8">
         {logos.map((logo) => (
           <div class="flex-shrink-0 flex justify-center items-center">
             <img
-              class="h-24 w-auto object-contain opacity-80 transition-all duration-300 hover:opacity-100"
+              class="h-16 w-auto object-contain opacity-80 transition-all duration-300 hover:opacity-100"
               src={logo.logoUrl}
               alt={logo.name}
               title={logo.name}
@@ -37,6 +52,33 @@ const logos: Logo[] = [
           </div>
         ))}
       </div>
+
+      <!-- Left Arrow -->
+      <button
+        onclick="document.getElementById('logoScroll').scrollBy({ left: -200, behavior: 'smooth' })"
+        class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-2 rounded-full"
+      >
+        ◀
+      </button>
+
+      <!-- Right Arrow -->
+      <button
+        onclick="document.getElementById('logoScroll').scrollBy({ left: 200, behavior: 'smooth' })"
+        class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-2 rounded-full"
+      >
+        ▶
+      </button>
     </div>
   </div>
 </div>
+
+<style>
+  /* Hide scrollbar for mobile */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>

@@ -1,5 +1,5 @@
 ---
-// src/components/HeroSection.astro
+ // src/components/HeroSection.astro
 export interface Props {
   images?: string[];
 }
@@ -8,12 +8,14 @@ const defaultImages = [
   "/Tourism sector.png",
   "/Textile sector.png",
   "/defense sector.png",
+  "/IT Sector.png",
+    "/Agri_Food.png",
 ];
 
 const { images = defaultImages } = Astro.props;
 ---
 
-<section class="relative flex overflow-hidden h-[91vh] font-[Poppins,sans-serif]">
+<section class="relative flex overflow-hidden h-[90vh] sm:h-[92vh] font-[Poppins,sans-serif]">
   <!-- Background Images -->
   <div class="absolute inset-0 z-[-1]">
     {images.map((src, index) => (
@@ -21,7 +23,7 @@ const { images = defaultImages } = Astro.props;
         src={src}
         alt={`Background slide ${index + 1}`}
         class:list={[
-          "bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out",
+          "bg-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out",
           index === 0 ? "opacity-100" : "opacity-0",
         ]}
       />
@@ -30,26 +32,27 @@ const { images = defaultImages } = Astro.props;
   </div>
 
   <!-- Hero Content -->
-  <div class="relative flex justify-center items-center z-10 w-full h-full px-6">
-    <div class="max-w-2xl text-center">
-      <h1 class="text-4xl font-bold text-white md:text-5xl lg:text-6xl leading-tight">
+  <div class="relative flex justify-center items-center z-10 w-full h-full px-4 sm:px-6">
+    <div class="max-w-xl sm:max-w-2xl text-center">
+      <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
         Shaping the future of&nbsp;
-        <span class="inline-block h-12 md:h-16 lg:h-20 text-blue-400 overflow-hidden relative">
-          <ul class="vertical-slider h-full flex flex-col justify-start items-center">
-            <li class="w-full flex justify-center items-center">Infrastructure</li>
-            <li class="w-full flex justify-center items-center">Industry</li>
-            <li class="w-full flex justify-center items-center">Sustainability</li>
-            <li class="w-full flex justify-center items-center">Development</li>
-            <li class="w-full flex justify-center items-center" aria-hidden="true">Infrastructure</li>
+        <!-- 👇 span height = li height -->
+        <span class="inline-block h-[2.5rem] sm:h-[3rem] md:h-[4rem] lg:h-[5rem] text-blue-400 overflow-hidden relative">
+          <ul class="vertical-slider">
+            <li>Infrastructure</li>
+            <li>Industry</li>
+            <li>Sustainability</li>
+            <li>Development</li>
+            <li aria-hidden="true">Infrastructure</li>
           </ul>
         </span>
       </h1>
 
-      <p class="mt-6 text-gray-200 text-lg">
+      <p class="mt-4 sm:mt-6 text-gray-200 text-base sm:text-lg">
         Empowering progress through expert Project Management & EPC solutions.
       </p>
 
-      <a href="#Casestudies" class="mt-8 inline-block bg-blue-600 hover:bg-blue-800 text-white px-6 py-3 rounded-md font-medium transition-transform transform">
+      <a href="#Casestudies" class="mt-6 sm:mt-8 inline-block bg-blue-600 hover:bg-blue-800 text-white px-5 sm:px-6 py-2 sm:py-3 rounded-md font-medium transition-transform transform">
         Discover Our Projects
       </a>
     </div>
@@ -78,40 +81,61 @@ const { images = defaultImages } = Astro.props;
 }
 
 .vertical-slider li {
-  height: 3rem;
+  height: 2.5rem; /* mobile default */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-@media (min-width: 768px) { .vertical-slider li { height: 4rem; } }
-@media (min-width: 1024px) { .vertical-slider li { height: 5rem; } }
+/* Tablet */
+@media (min-width: 640px) { 
+  .vertical-slider li { height: 3rem; }
+}
+/* Medium */
+@media (min-width: 768px) { 
+  .vertical-slider li { height: 4rem; }
+}
+/* Large */
+@media (min-width: 1024px) { 
+  .vertical-slider li { height: 5rem; }
+}
 
+/* 👇 Sync animation exactly with li height */
 @keyframes slideWords {
-  0%, 20% { transform: translateY(0); }
-  25%, 45% { transform: translateY(-3rem); }
-  50%, 70% { transform: translateY(-6rem); }
-  75%, 95% { transform: translateY(-9rem); }
-  100% { transform: translateY(-12rem); }
+  0%, 20%   { transform: translateY(0); }
+  25%, 45%  { transform: translateY(-2.5rem); }
+  50%, 70%  { transform: translateY(-5rem); }
+  75%, 95%  { transform: translateY(-7.5rem); }
+  100%      { transform: translateY(-10rem); }
+}
+
+@media (min-width: 640px) {
+  @keyframes slideWords {
+    0%, 20%   { transform: translateY(0); }
+    25%, 45%  { transform: translateY(-3rem); }
+    50%, 70%  { transform: translateY(-6rem); }
+    75%, 95%  { transform: translateY(-9rem); }
+    100%      { transform: translateY(-12rem); }
+  }
 }
 
 @media (min-width: 768px) {
   @keyframes slideWords {
-    0%, 20% { transform: translateY(0); }
-    25%, 45% { transform: translateY(-4rem); }
-    50%, 70% { transform: translateY(-8rem); }
-    75%, 95% { transform: translateY(-12rem); }
-    100% { transform: translateY(-16rem); }
+    0%, 20%   { transform: translateY(0); }
+    25%, 45%  { transform: translateY(-4rem); }
+    50%, 70%  { transform: translateY(-8rem); }
+    75%, 95%  { transform: translateY(-12rem); }
+    100%      { transform: translateY(-16rem); }
   }
 }
 
 @media (min-width: 1024px) {
   @keyframes slideWords {
-    0%, 20% { transform: translateY(0); }
-    25%, 45% { transform: translateY(-5rem); }
-    50%, 70% { transform: translateY(-10rem); }
-    75%, 95% { transform: translateY(-15rem); }
-    100% { transform: translateY(-20rem); }
+    0%, 20%   { transform: translateY(0); }
+    25%, 45%  { transform: translateY(-5rem); }
+    50%, 70%  { transform: translateY(-10rem); }
+    75%, 95%  { transform: translateY(-15rem); }
+    100%      { transform: translateY(-20rem); }
   }
 }
 </style>

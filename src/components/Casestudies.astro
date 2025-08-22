@@ -1,45 +1,47 @@
 ---
-// Define the structure for each case study item for type safety
 interface CaseStudy {
   title: string;
   description: string;
   imageUrl: string;
   imageAlt: string;
   link: string;
-  isReversed?: boolean; // Optional property to reverse the layout
+  isReversed?: boolean;
 }
 
-// Array of your service/case study data.
 const services: CaseStudy[] = [
   {
     title: "Mega Food Park Projects",
-    description: "As MoFPI-empanelled consultants, we guide you through the Mega Food Park scheme. We help secure viability gap funding of ₹50 Crores by providing turnkey solutions, from DPR preparation to securing backward and forward linkages.",
+    description:
+      "As MoFPI-empanelled consultants, we guide you through the Mega Food Park scheme. We help secure viability gap funding of ₹50 Crores by providing turnkey solutions, from DPR preparation to securing backward and forward linkages.",
     imageUrl: "/image1.png",
     imageAlt: "A vibrant, modern farm with rows of crops under a clear sky.",
-    link: "/services/mega-food-parks"
+    link: "/services/mega-food-parks",
   },
   {
-    title: `Gujarat Agri Infrastructure Mega Food Park`,
-    description: `The Gujarat Agro Infrastructure Mega Food Park is an industrial estate exclusively for the food processing sector. Strategically located near Surat, Gujarat, it aims to strengthen the agricultural value chain by providing infrastructure that connects farmers, food processors, wholesalers, retailers, and exporters.`,
+    title: "Gujarat Agri Infrastructure Mega Food Park",
+    description:
+      "The Gujarat Agro Infrastructure Mega Food Park is an industrial estate exclusively for the food processing sector. Strategically located near Surat, Gujarat, it aims to strengthen the agricultural value chain by providing infrastructure that connects farmers, food processors, wholesalers, retailers, and exporters.",
     imageUrl: "/download.jpg",
     imageAlt: "A basket of fresh tomatoes, onions, and potatoes.",
     link: "/services/operation-greens",
-    isReversed: true
+    isReversed: true,
   },
   {
     title: "Paithan Mega Food Park",
-    description: "Paithan Mega Food Park is a food processing hub in Maharashtra, India. Promoted by Nath Biogenes (I) Ltd, it is part of a government scheme to provide integrated infrastructure and reduce post-harvest losses.",
+    description:
+      "Paithan Mega Food Park is a food processing hub in Maharashtra, India. Promoted by Nath Biogenes (I) Ltd, it is part of a government scheme to provide integrated infrastructure and reduce post-harvest losses.",
     imageUrl: "/Paithan Food Park.jpg",
     imageAlt: "Interior of a large, modern cold storage warehouse.",
-    link: "/services/cold-chain"
+    link: "/services/cold-chain",
   },
   {
     title: "Agro Processing Cluster Projects",
-    description: "Develop a modern food processing hub with the APC scheme. We help establish clusters with shared infrastructure like cold storage, warehouses, and labs, linking farmers to processors and markets for enhanced efficiency.",
+    description:
+      "Develop a modern food processing hub with the APC scheme. We help establish clusters with shared infrastructure like cold storage, warehouses, and labs, linking farmers to processors and markets for enhanced efficiency.",
     imageUrl: "/image4.png",
     imageAlt: "An aerial view of an industrial food processing facility.",
     link: "/services/apc-projects",
-    isReversed: true
+    isReversed: true,
   },
 ];
 ---
@@ -57,42 +59,37 @@ const services: CaseStudy[] = [
     <!-- Cards Container -->
     <div class="mt-16 space-y-16">
       {services.map((service) => (
-       <article
-  class:list={[
-    "group flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-80",
-    { "md:flex-row-reverse": service.isReversed }
-  ]}
->
-  <!-- Image Section -->
-  <div class="md:w-1/2 h-40 md:h-full">
-    <img
-      src={service.imageUrl}
-      alt={service.imageAlt}
-      class="object-cover w-full h-full"
-    />
-  </div>
+        <article
+          class:list={[
+            "group flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1",
+            { "md:flex-row-reverse": service.isReversed }
+          ]}
+        >
+          <!-- Image Section -->
+          <div class="md:w-1/2 relative overflow-hidden">
+            <img
+              src={service.imageUrl}
+              alt={service.imageAlt}
+              class="object-cover w-full h-full aspect-video md:aspect-auto transform transition duration-500 group-hover:scale-105"
+            />
+          </div>
 
-  <!-- Content Section -->
-  <div class="flex flex-col justify-center p-8 md:w-1/2 sm:p-12 h-40 md:h-full">
-    <h3 class="text-2xl font-bold text-gray-900">
-      {service.title}
-    </h3>
-    <p
-      class="mt-4 text-base leading-relaxed text-gray-600 line-clamp-3 group-hover:line-clamp-none transition-all duration-300"
-    >
-      {service.description}
-    </p>
-    <div class="mt-6">
-      <a
-        href={service.link}
-        class="inline-block px-6 py-3 font-semibold text-gray-800 transition bg-transparent border border-gray-400 rounded-full hover:bg-blue-500 hover:text-white hover:border-blue-500"
-      >
-        Learn More
-      </a>
-    </div>
-  </div>
-</article>
-
+          <!-- Content Section -->
+          <div class="flex flex-col justify-center p-6 sm:p-10 md:w-1/2">
+            <h3 class="text-2xl font-bold text-gray-900">{service.title}</h3>
+            <p class="mt-4 text-base leading-relaxed text-gray-600 md:line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+              {service.description}
+            </p>
+            <div class="mt-6">
+              <a
+                href={service.link}
+                class="inline-block px-6 py-3 font-semibold text-gray-800 transition bg-transparent border border-gray-400 rounded-full hover:bg-blue-500 hover:text-white hover:border-blue-500"
+              >
+                Learn More
+              </a>
+            </div>
+          </div>
+        </article>
       ))}
     </div>
   </div>

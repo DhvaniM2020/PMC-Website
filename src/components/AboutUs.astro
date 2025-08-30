@@ -8,51 +8,74 @@ const stats = [
 ];
 ---
 
-<section id="about" class="min-h-[100vh] flex items-center py-20 bg-white sm:py-28 font-[Poppins,sans-serif]">
-  <div class="max-w-7xl px-8 mx-auto sm:px-10 lg:px-16">
-    <!-- Main grid container with content on the left and image on the right -->
-    <div class="grid items-center gap-16 md:grid-cols-5">
+<section id="about" class="min-h-[100vh] flex items-top py-10 bg-[#F2F5F4] sm:py-20 font-[Poppins,sans-serif]">
+  <div class="px-8 mx-auto sm:px-10 lg:px-16">
+    <!-- "About PMC Elite" section -->
+    <div class="text-center mt-20">
+      <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+        Who We Are
+      </h2>
+      <div class="w-24 h-1 mt-4 mx-auto bg-yellow-500 rounded"></div>
+      <p class="mt-6 max-w-4xl mx-auto text-lg text-gray-600">
+        Abhyuday, established in 2011, is a leading Project Management
+        Consultancy driving transformative projects in Food Processing,
+        Textile, and Defence sectors. With a strong national and global presence, it continues to deliver impactful solutions with excellence and innovation.
+      </p>
+    </div>
 
-      <!-- Left (Content section - Now smaller with md:col-span-2) -->
-      <div class="relative md:col-span-2">
-        <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          Who We Are
-        </h2>
-        <div class="w-24 h-1 mt-4 bg-yellow-500 rounded"></div>
-        
-        <p class="mt-6 text-gray-700 text-s leading-relaxed tracking-wide">
-          Established in <strong>November 2011</strong>, 
-          <span class="font-bold">Abhyuday</span> is a premier Project Management Consultancy (PMC) with over a decade of driving excellence in the development and implementation of transformative projects across the <strong>Food Processing, Textile and Defence sectors.</strong>
-        </p>
-        
-        <p class="mt-6 text-s font-medium text-yellow-600 uppercase tracking-wide leading-relaxed">
-          With a nationwide reach across <strong>21+ Indian states</strong>, including the North-East, and a global presence with offices in <strong>Japan, USA, and Africa</strong>, our commitment to excellence is reflected in over <strong>₹4,000 Cr</strong> of completed projects and <strong>₹1,000 Cr</strong> in ongoing initiatives.
+    <!-- The cards section is now small and centered, with a 4-column layout on large screens -->
+    <div class="w-full max-w-7xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Our Mission Card -->
+      <div class="rounded-xl shadow-md p-8 text-center border-2 border-gray-200 bg-white transition-all duration-300 hover:shadow-2xl">
+        <div class="flex justify-center mb-4">
+          <img src="/our mission.svg" alt="Mission Icon" class="w-12 h-12" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900">Our Mission</h3>
+        <p class="mt-2 text-medium text-gray-600 text-center">
+          To provide exceptional project management consulting services that deliver successful outcomes for infrastructure and development projects across diverse sectors.
         </p>
       </div>
 
-      <!-- Right (Image section - Now larger with md:col-span-3) -->
-      <div class="relative md:col-span-3">
-        <!-- Decorative Circles - Adjusted to be on the top-right side of the image -->
-        <div class="absolute top-[-40px] right-[-40px] w-28 h-28 border-2 rounded-full border-blue-400 z-0"></div>
-        <div class="absolute top-[-20px] right-0 w-36 h-36 border-2 rounded-full border-blue-200 z-0"></div>
-
-        <!-- Image -->
-        <div class="relative z-10 h-[400px] w-full rounded-xl shadow-lg overflow-hidden bg-[url('/AboutUs.png')] bg-cover bg-center"></div>
-
-        <!-- Since 2011 Box - Adjusted to be on the bottom-right side of the image -->
-        <div class="absolute px-6 py-3 text-sm font-semibold text-blue-600 bg-white rounded-xl shadow-xl bottom-10 right-[-40px] z-20 sm:text-base">
-          Since <span class="sm:text-2xl">&nbsp;2011</span>
+      <!-- Our Vision Card -->
+      <div class="rounded-xl shadow-md p-8 text-center border-2 border-gray-200 bg-white transition-all duration-300 hover:shadow-2xl">
+        <div class="flex justify-center mb-4">
+          <img src="/our Vision.svg" alt="Vision Icon" class="w-12 h-12" />
         </div>
+        <h3 class="text-xl font-bold text-gray-900">Our Vision</h3>
+        <p class="mt-2 text-medium text-gray-600 text-center">
+          To be the leading PMC firm recognized for excellence, innovation, and reliability in project delivery, contributing to national development and growth.
+        </p>
+      </div>
+
+      <!-- Our Values Card -->
+      <div class="rounded-xl shadow-md p-8 text-center border-2 border-gray-200 bg-white transition-all duration-300 hover:shadow-2xl">
+        <div class="flex justify-center mb-4">
+          <img src="/our values.svg" alt="Values Icon" class="w-12 h-12" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900">Our Values</h3>
+        <p class="mt-2 text-medium text-gray-600 text-center">
+          Integrity, excellence, innovation, and commitment drive everything we do. We build lasting partnerships through trust and exceptional service delivery.
+        </p>
+      </div>
+
+      <!-- Our Team Card -->
+      <div class="rounded-xl shadow-md p-8 text-center border-2 border-gray-200 bg-white transition-all duration-300 hover:shadow-2xl">
+        <div class="flex justify-center mb-4">
+          <img src="/our Team.svg" alt="Team Icon" class="w-12 h-12" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900">Our Team</h3>
+        <p class="mt-2 text-medium text-gray-600 text-center">
+          Experienced professionals with diverse expertise in engineering, management, and consulting, united by a passion for successful project delivery.
+        </p>
       </div>
     </div>
 
-    <!-- Stats, now a separate section below the main grid -->
-    <!-- The grid-cols-4 class ensures all stats appear in one row on large screens -->
-    <div class="w-full mt-16 grid grid-cols-2 lg:grid-cols-5 gap-6">
+    <!-- The stats section with 8x1 grid layout -->
+    <div class="max-w-8xl w-full mt-16 grid grid-cols-2 lg:grid-cols-5 gap-5 divide-x divide-gray-300">
       {
         stats.map((stat) => (
-          <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-8 text-center">
-            <h3 class="text-2xl font-bold text-gray-900">{stat.value}</h3>
+          <div class="text-center px-4">
+            <h3 class="text-3xl font-bold text-[#287354]">{stat.value}</h3>
             <p class="mt-2 text-medium text-gray-600">{stat.label}</p>
           </div>
         ))

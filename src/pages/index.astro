@@ -4,7 +4,7 @@
 // Import the layout and all the components we created
 import Layout from '../layout/Layout.astro';
 import HeroSection from '../components/HeroSection.astro';
-import Casestudies from '../components/Casestudies.astro';
+
 import AboutUs from '../components/AboutUs.astro';
 import Empanelment from '../components/Empanelment.astro';
 import CoreServices from '../components/CoreServices.astro';
@@ -13,9 +13,10 @@ import Newsletter from '../components/Newsletter.astro';
 import WhyChooseUs from '../components/WhyChooseUs.astro';
 import PMC_cycle from '../components/PMC_cycle.astro';
 import Clients from '../components/Clients.astro';
+import Casestudies from '../components/Casestudies.astro';
 ---
 
-<Layout title="Agro and Food: Abhyuday | Home">
+<Layout title="PMC-EPC | Home">
 
   <!-- A wrapper div can be useful for flex-column layouts -->
   <div class="flex flex-col min-h-screen">
@@ -26,8 +27,9 @@ import Clients from '../components/Clients.astro';
       <Casestudies />
       <WhyChooseUs/>
       <!-- <ProjectMaps /> -->
+   
+      <Clients client:visible />
       <Empanelment />
-      <Clients />
       <Newsletter />
     </main>
   </div>

@@ -1,91 +1,157 @@
 ---
-import {
-  PhoneIcon,
-  EnvelopeIcon,
-  MapPinIcon,
-} from '@heroicons/react/24/solid';
+// This is the Astro component file for the footer section.
+// It uses Tailwind CSS for styling.
 ---
 
-<footer class="bg-blue-900 text-white py-12" style="font-family: 'Poppins'">
-  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    
-    <!-- Logo + Description + Newsletter -->
+<footer class="bg-green-800 text-gray-300 py-12 font-[Poppins,sans-serif]">
+  <div
+    class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+  >
     <div>
-      <div class="text-2xl font-bold mb-3 text-indigo-50">Abhyuday</div>
-      <div class="flex items-center bg-white rounded overflow-hidden w-full max-w-xs">
-        <input
-          type="email"
-          placeholder="Enter your email"
-          class="px-3 py-2 w-full text-sm text-black outline-none"
+      <div class="flex items-center mb-4">
+        <img
+          src="/public/abhyuday logo.svg"
+          alt="PMC Elite Logo"
+          class="w-12 h-12 mr-3"
         />
-        <button class="bg-blue-600 px-3 py-2 text-white">
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"
-            viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 2L11 13" />
-            <path d="M22 2L15 22L11 13L2 9L22 2Z" />
-          </svg>
-        </button>
+        <div>
+          <h3 class="text-xl font-bold text-white">Abhyuday Bharat Pvt.Ltd</h3>
+          <p class="text-xs">Project Management Consultancy</p>
+        </div>
       </div>
-      <!-- Socials -->
-      <div class="flex space-x-4 mt-4 text-green-100">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <p class="text-sm mt-4 leading-relaxed">
+        A leading Project Management Consulting Company having expertise in
+        Industrial Cluster Development, Techno Economic Services and Turnkey
+        Projects for Industries, Businesses and Government Agencies
+      </p>
+      <div class="flex space-x-4 mt-6 text-white">
+        <a href="#" class="hover:text-[#e6f4d6] transition-colors duration-200">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="hover:text-[#e6f4d6] transition-colors duration-200">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="hover:text-[#e6f4d6] transition-colors duration-200">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="hover:text-[#e6f4d6] transition-colors duration-200">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
       </div>
     </div>
 
-    <!-- Quick Links -->
     <div>
-      <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-blue-400">About</a></li>
-        <li><a href="#" class="hover:text-blue-400">Our Service</a></li>
-        <li><a href="#" class="hover:text-blue-400">Project</a></li>
-        <li><a href="#" class="hover:text-blue-400">Privacy Policy</a></li>
+      <h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-3 text-sm">
+        <li><a href="#" class="hover:text-orange-300">About Us</a></li>
+        <li><a href="#" class="hover:text-orange-300">Our Services</a></li>
+        <li><a href="#" class="hover:text-orange-300">Business Strategy</a></li>
+        <li><a href="#" class="hover:text-orange-300">Projects</a></li>
+        <!-- <li><a href="#" class="hover:text-green-300">Why Choose Us</a></li> -->
+        <li><a href="#" class="hover:text-orange-300">Contact</a></li>
       </ul>
     </div>
 
-    <!-- Contact Info -->
     <div>
-      <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
-      <ul class="space-y-3 text-sm text-white">
-        
-        <li class="flex items-start gap-2">
-          <!-- Phone Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mt-0.5 text-white" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" />
-          </svg>
-          <span>+91 9904133511</span>
+      <h3 class="text-lg font-bold text-white mb-4">Our Services</h3>
+      <ul class="space-y-3 text-sm">
+        <li>
+          <a href="#" class="hover:text-orange-300"
+            >Project Management Consultancy</a>
         </li>
+        <li>
+          <a href="#" class="hover:text-orange-300"
+            >Infrastructure Development</a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-orange-300">Engineering Services</a>
+        </li>
+        <li><a href="#" class="hover:text-orange-300">Quality Assurance</a></li>
+        <li><a href="#" class="hover:text-orange-300">Project Monitoring</a></li>
+        <li>
+          <a href="#" class="hover:text-orange-300">Construction Management</a>
+        </li>
+      </ul>
+    </div>
 
+    <div>
+      <h3 class="text-lg font-bold text-white mb-4">Contact Info</h3>
+      <ul class="space-y-4 text-sm">
         <li class="flex items-start gap-2">
-          <!-- Envelope Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mt-0.5 text-white" viewBox="0 0 24 24">
-            <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
-            <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
-          </svg>
-          <span>info@abhyuday.in</span>
+          <img
+            src="/public/maps-and-flags 2.svg"
+            alt="Location"
+            class="w-5 h-5 mt-0.5 text-gray-300"
+          />
+          <span
+            >1001 & 1020 Time Square Arcade,<br />Nr Bagban party plot,Thaltej
+            Shilaj Road,  Thaltej 380059, <br /> Ahmedabad, Gujarat, India</span
+          >
         </li>
-
         <li class="flex items-start gap-2">
-          <!-- Map Pin Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mt-0.5 text-white" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
-          </svg>
-          <span>Times Square Arcade, Thaltej, Ahmedabad-380059, Gujarat, India</span>
+          <img
+            src="/public/Phone.svg"
+            alt="Phone"
+            class="w-5 h-5 mt-0.5 text-gray-300"
+          />
+          <div>
+            <a href="tel:+911244567890" class="block hover:text-orange-300"
+              >+91 124 456 7890</a
+            >
+            <a href="tel:+911244567891" class="block hover:text-orange-300"
+              >+91 124 456 7891</a
+            >
+          </div>
         </li>
-        
+        <li class="flex items-start gap-2">
+          <img
+            src="/public/Mail.svg"
+            alt="Email"
+            class="w-5 h-5 mt-0.5 text-gray-300"
+          />
+          <div>
+            <a
+              href="mailto:info@pmcelite.com"
+              class="block hover:text-orange-300">info@pmcelite.com</a
+            >
+            <a
+              href="mailto:projects@pmcelite.com"
+              class="block hover:text-orange-300">projects@pmcelite.com</a
+            >
+          </div>
+        </li>
+        <li class="flex items-start gap-2">
+          <img
+            src="/public/Globe.svg"
+            alt="Website"
+            class="w-5 h-5 mt-0.5 text-gray-300"
+          />
+          <a
+            href="http://www.pmcelite.com"
+            target="_blank"
+            class="hover:text-orange-300">www.pmcelite.com</a
+          >
+        </li>
       </ul>
     </div>
   </div>
 
-  <!-- Bottom Strip -->
-  <div class="mt-12 border-t border-green-800 pt-6 text-center text-sm text-gray-300">
-    <span>Copyright © 2025 <a href="#" class="text-blue-400">Abhyuday</a>. All Rights Reserved.</span>
-    <div class="mt-1">
-      <a href="#" class="hover:text-green-300">Privacy Policy</a> · 
-      <a href="#" class="hover:text-green-300">Terms & Conditions</a>
+  <div class="mt-10 pt-3 text-center text-sm">
+    <div
+      class="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto px-4 border-t border-white-800 pt-3"
+    >
+      <p>© 2025 Abhyuday Bharat Project. All rights reserved.</p>
+      <div class="flex space-x-4 mt-2 sm:mt-0">
+        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
+          >Privacy Policy</a
+        >
+        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
+          >Terms of Service</a
+        >
+        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
+          >Sitemap</a
+        >
+      </div>
     </div>
   </div>
 </footer>

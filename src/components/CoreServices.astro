@@ -1,154 +1,197 @@
 ---
-layout: "../layouts/BaseLayout.astro";
+// This is the Astro component file for the Core Services section.
+// It uses Tailwind CSS for styling.
 ---
+
+<style>
+  /*
+      Custom styles to handle the hover effects on the animated-card.
+      The hover effects on the icon-container have been removed.
+    */
+  .animated-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 12px;
+    transition:
+      transform 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+  }
+
+  .animated-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Adds a slight lift effect on hover */
+  }
+
+  /* The icon-container styles are now for positioning only, no hover transforms */
+  .icon-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+</style>
 
 <section
   id="CoreServices"
-  class="min-h-[100vh] flex items-center bg-gradient-to-b from-white via-white to-[#e6f4d6] overflow-x-hidden font-[Poppins,sans-serif]"
+  class="min-h-[100vh] flex items-top py-10 bg-gradient-to-b from-white via-white to-[#e6f4d6] overflow-x-hidden pt-20 pb-10 sm:py-20 font-[poppins,sans-serif]"
 >
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-8">
     <div class="text-center mb-10">
-      <h2
-        class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
-      >
+      <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
         Our Services
       </h2>
       <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
+      <p class="mt-6 max-w-4xl mx-auto text-lg text-gray-600">
+        We specialize in delivering comprehensive project management services
+        across diverse industry sectors, bringing domain expertise and proven
+        methodologies to every project.
+      </p>
     </div>
 
-    <!-- First row (3 cards) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center mb-6">
-      <!-- CARD 1 -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center mb-8"
+    >
       <div
-        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[400px] hover:scale-[1.05] transition-transform duration-300"
+        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
       >
-        <img src="/Agri.png" alt="Agri" class="w-full h-60 object-cover" />
-        <div
-          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
-        >
-          <img src="/fruit.png" class="w-10 h-10" />
+        <div class="icon-container mb-4">
+          <img src="/public/Agri.svg" alt="Agri Icon" class="w-16 h-16" />
         </div>
-        <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-          <h3 class="text-lg font-semibold mb-2">Agri & Food Processing</h3>
-          <p class="text-sm text-gray-600 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
-            Abhyuday, empanelled with MoFPI, provides end-to-end Mega Food Park
-            solutions from planning to certification.
+        <div class="pt-4 pb-4 text-left">
+          <h3 class="text-xl font-bold mb-2">Aerospace & Defence</h3>
+          <p class="text-sm text-gray-600">
+            Defense manufacturing facilities, aerospace infrastructure, testing
+            laboratories, and security installations.
           </p>
-          <a href="#" class="text-blue-600 font-semibold mt-auto"
-            >LEARN MORE →</a
-          >
+        </div>
+        <div
+          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
+        >
+          <div>
+            <p class="text-base text-green-800 font-bold">12+ Projects</p>
+            <p class="text-xs text-green-800">Completed</p>
+          </div>
+          <div>
+            <p class="text-base text-green-800 font-bold">₹1200+ Crores</p>
+            <p class="text-xs text-text-green-800">Project Value</p>
+          </div>
         </div>
       </div>
 
-      <!-- CARD 2 -->
       <div
-        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[400px] hover:scale-[1.05] transition-transform duration-300"
+        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
       >
-        <img
-          src="/Defence.png"
-          alt="Defence"
-          class="w-full h-60 object-cover"
-        />
-
-        <div
-          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
-        >
-          <img src="/police (1).png" class="w-10 h-10" />
+        <div class="icon-container mb-4">
+          <img src="/public/Aerospaces.svg" alt="Agri Icon" class="w-16 h-16" />
         </div>
-        <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-          <h3 class="text-lg font-semibold mb-2">Aerospace & Defense</h3>
-          <p class="text-sm text-gray-600 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
-            We modernize defence equipment through technology transfer,
-            customization, and collaborations, enhancing indigenous capabilities
-            and global competitiveness. This ensures long-term resilience,
-            modernization, and self-reliance in strategic sectors.
+        <div class="pt-4 pb-4 text-left">
+          <h3 class="text-xl font-bold mb-2">Aerospace & Defence</h3>
+          <p class="text-sm text-gray-600">
+            Defense manufacturing facilities, aerospace infrastructure, testing
+            laboratories, and security installations.
           </p>
-          <a href="#" class="text-blue-600 font-semibold mt-auto"
-            >LEARN MORE →</a
-          >
+        </div>
+        <div
+          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
+        >
+          <div>
+            <p class="text-base text-green-800 font-bold">12+ Projects</p>
+            <p class="text-xs text-green-800">Completed</p>
+          </div>
+          <div>
+            <p class="text-base text-green-800 font-bold">₹1200+ Crores</p>
+            <p class="text-xs text-text-green-800">Project Value</p>
+          </div>
         </div>
       </div>
 
-      <!-- CARD 3 -->
       <div
-        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[400px] hover:scale-[1.05] transition-transform duration-300"
+        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
       >
-        <img
-          src="/EC & IT.png"
-          alt="Electronics"
-          class="w-full h-60 object-cover"
-        />
-        <div
-          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
-        >
-          <img src="/software-application.png" class="w-10 h-10" />
+        <div class="icon-container mb-4">
+          <img
+            src="/public/Electronics.svg"
+            alt="Agri Icon"
+            class="w-16 h-16"
+          />
         </div>
-        <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-          <h3 class="text-lg font-semibold mb-2">Electronics & IT</h3>
-          <p class="text-sm text-gray-600 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
-            We create custom firmware, software, and AI websites, delivering
-            innovative, reliable, and scalable digital solutions.
+        <div class="pt-4 pb-4 text-left">
+          <h3 class="text-xl font-bold mb-2">Electronics & IT</h3>
+          <p class="text-sm text-gray-600">
+            IT parks, electronics manufacturing units, data centers, and
+            technology infrastructure projects.
           </p>
-          <a href="#" class="text-blue-600 font-semibold mt-auto"
-            >LEARN MORE →</a
-          >
+        </div>
+        <div
+          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
+        >
+          <div>
+            <p class="text-base text-green-800 font-bold">38+ Projects</p>
+            <p class="text-xs text-green-800">Completed</p>
+          </div>
+          <div>
+            <p class="text-base text-green-800 font-bold">₹950+ Crores</p>
+            <p class="text-xs text-green-800">Project Value</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Second row (2 cards) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
-      <!-- CARD 4 -->
+    <div
+      class="w-full lg:w-2/3 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 justify-center mb-6"
+    >
       <div
-        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[400px] hover:scale-[1.05] transition-transform duration-300"
+        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
       >
-        <img
-          src="/Textile.png"
-          alt="Textile"
-          class="w-full h-60 object-cover"
-        />
-        <div
-          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
-        >
-          <img src="/sewing-machine.png" class="w-10 h-10" />
+        <div class="icon-container mb-4">
+          <img src="/public/Textile.svg" alt="Agri Icon" class="w-16 h-16" />
         </div>
-        <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-          <h3 class="text-lg font-semibold mb-2">Textile</h3>
-          <p class="text-sm text-gray-600 mb-4 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
-            We develop modern textile parks with shared facilities, fostering
-            entrepreneurship and enhancing India’s textile industry
-            competitiveness globally.
+        <div class="pt-4 pb-4 text-left">
+          <h3 class="text-xl font-bold mb-2">Textile</h3>
+          <p class="text-sm text-gray-600">
+            Textile manufacturing units, garment factories, dyeing facilities,
+            and textile infrastructure development.
           </p>
-          <a href="#" class="text-blue-600 font-semibold mt-auto"
-            >LEARN MORE →</a
-          >
+        </div>
+        <div
+          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
+        >
+          <div>
+            <p class="text-base text-gray-800 font-bold">62+ Projects</p>
+            <p class="text-xs text-green-800">Completed</p>
+          </div>
+          <div>
+            <p class="text-base text-green-800 font-bold">₹1100+ Crores</p>
+            <p class="text-xs text-green-800">Project Value</p>
+          </div>
         </div>
       </div>
 
-      <!-- CARD 5 -->
       <div
-        class="animated-card relative group bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-[400px] hover:scale-[1.05] transition-transform duration-300"
+        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
       >
-        <img
-          src="/Tourism.png"
-          alt="Tourism"
-          class="w-full h-60 object-cover"
-        />
-        <div
-          class="absolute left-6 top-53 w-14 h-14 rounded-full bg-white flex items-center justify-center z-10 shadow-md border border-white"
-        >
-          <img src="/tourism icon.png" class="w-10 h-10" />
+        <div class="icon-container mb-4">
+          <img src="/public/Tourism.svg" alt="Agri Icon" class="w-16 h-16" />
         </div>
-        <div class="pt-10 pl-6 pr-6 pb-6 text-left flex flex-col flex-grow">
-          <h3 class="text-lg font-semibold mb-2">Tourism</h3>
-          <p class="text-sm text-gray-600 mb-4 line-clamp-2">
-            Tourism develops infrastructure, boosts travel, promotes heritage,
-            encourages investment, supports policies, creates jobs, and drives
-            growth.
+        <div class="pt-4 pb-4 text-left">
+          <h3 class="text-xl font-bold mb-2">Tourism</h3>
+          <p class="text-sm text-gray-600">
+            Resort developments, tourism infrastructure, hospitality projects,
+            and recreational facility construction.
           </p>
-          <a href="#" class="text-blue-600 font-semibold mt-auto"
-            >LEARN MORE →</a
-          >
+        </div>
+        <div
+          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
+        >
+          <div>
+            <p class="text-base text-green-800 font-bold">28+ Projects</p>
+            <p class="text-xs text-green-800">Completed</p>
+          </div>
+          <div>
+            <p class="text-base text-green-800 font-bold">₹650+ Crores</p>
+            <p class="text-xs text-green-800">Project Value</p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,71 +1,116 @@
 ---
 // src/components/WhyChooseUs.astro
-import { Image } from 'astro:assets';
-import pyramidImage from '/public/WhyChooseUs.png';
+import { Image } from "astro:assets";
+import pyramidImage from "/public/WhyChooseUs.png";
+// Note: 'pyramidImage' is imported but not used.
+// If not required, you can safely remove this import.
+
+interface Feature {
+  icon: string; // Path to the image file
+  title: string;
+  description: string;
+}
+
+const features: Feature[] = [
+  {
+    icon: "/public/government.svg",
+    title: "Government Empaneled",
+    description:
+      "Certified and empaneled with multiple government agencies and public sector undertakings.",
+  },
+  {
+    icon: "/public/expertise.svg",
+    title: "Industry Expertise",
+    description:
+      "15+ years of proven experience across diverse sectors with specialized domain knowledge.",
+  },
+  {
+    icon: "/public/time.svg",
+    title: "Timely Delivery",
+    description:
+      "95% on-time project completion rate with efficient project management methodologies.",
+  },
+  {
+    icon: "/public/team.svg",
+    title: "Expert Team",
+    description:
+      "50+ qualified professionals including engineers, architects, and project management specialists.",
+  },
+  {
+    icon: "/public/cost.svg",
+    title: "Cost Efficiency",
+    description:
+      "Optimal resource utilization and cost management ensuring maximum value for investment.",
+  },
+  {
+    icon: "/public/quality.svg",
+    title: "Quality Assurance",
+    description:
+      "ISO certified processes with rigorous quality control and compliance management.",
+  },
+];
 ---
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-  .why-choose-us {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    font-family: 'Poppins', sans-serif; /* Apply Poppins to whole section */
-  }
-
-  .text-content {
-    padding-right: 2rem;
-  }
-
-  .text-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .text-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  @media (max-width: 768px) {
-    .why-choose-us {
-      grid-template-columns: 1fr;
-    }
-    .text-content {
-      padding-right: 0;
-    }
-  }
-</style>
-
-<section class="why-choose-us">
-  <div class="text-content">
-    <h2 class="text-4xl font-bold tracking-tight text-black-900 sm:text-5xl">
-      Why Choose Us?
-    </h2>
-    <h3>Expert Business Advice</h3>
-    <p class="text-black-600 tracking-wider font-s">
-      At Abhyuday, we turn vision into reality. Backed by decades of experience, our team of technocrats, financial experts, and engineers delivers data-driven insights, strategic guidance, and seamless execution. From governments to startups, we craft tailored solutions that drive growth, reduce risk, and ensure long-term success.
-    </p>
+<section class="bg-gray-50 py-16 sm:py-24 font-[Poppins,sans-serif]">
+  <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl">
+        Why Choose us?
+      </h2>
+      <!-- Orange line -->
+      <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
+      <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+        We bring unmatched expertise, reliability, and commitment to every
+        project, ensuring successful outcomes that exceed expectations.
+      </p>
+    </div>
   </div>
-  <div class="image-container">
-    <Image 
-      src={pyramidImage} 
-      alt="A pyramid diagram showing key values: Client-Focused, Sustainable, Comprehensive, and Expertise." 
-      widths={[300, 600, 900]}
-      sizes="(max-width: 768px) 100vw, 50vw"
-      loading="eager"
-      quality={90}
-    />
+
+  <!-- Features Grid -->
+  <div class="max-w-7xl px-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {features.map((feature) => (
+      <div
+        class="bg-white p-8 rounded-lg shadow-md border border-gray-200 flex flex-col items-start space-y-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group"
+      >
+        <div class="flex items-center space-x-4">
+          <div class="flex-shrink-0 transition-all duration-300 group-hover:scale-110">
+            <img src={feature.icon} alt={feature.title} class="w-10 h-10" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">{feature.title}</h3>
+        </div>
+        <p class="mt-2 text-gray-600">{feature.description}</p>
+      </div>
+    ))}
   </div>
+
+  <!-- CTA Section -->
+  <section class="mt-20">
+    <div
+      class="max-w-7xl px-4 mx-auto bg-gradient-to-r from-[#287354] to-[#2c6e5a] rounded-2xl shadow-xl p-10 text-center"
+    >
+      <h2 class="text-3xl font-bold text-white tracking-tight sm:text-4xl">
+        Ready to Start Your Project?
+      </h2>
+      <p class="mt-4 text-white/90 text-md max-w-2xl mx-auto">
+        Get in touch with our experts for a consultation and project assessment.
+      </p>
+      <div
+        class="mt-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+      >
+        <a
+          href="#"
+          class="inline-block px-8 py-4 bg-white text-[#2c6e5a] text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105"
+        >
+          Request Consultation
+        </a>
+        <a
+          href="#"
+          class="inline-block px-8 py-4 bg-transparent border-2 border-white text-white text-lg font-semibold rounded-lg shadow-lg transition-all duration-300 hover:bg-white hover:text-[#2c6e5a] hover:scale-105"
+        >
+          Download Brochure
+        </a>
+      </div>
+    </div>
+  </section>
 </section>

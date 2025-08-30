@@ -1,22 +1,155 @@
-<section id="our-strategy" class="py-20 bg-gray-50 sm:py-28" style="font-family: 'Poppins'">
+---
+// This is the Astro component file for the Core Services section.
+// It uses Tailwind CSS for styling.
+---
+
+<style>
+  /* Base card styling */
+  .animated-strategy-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+    border: 1px solid rgb(229 231 235); /* border border-gray-200 */
+    padding: 1.5rem; /* p-6 */
+    position: relative;
+    overflow: hidden; /* Ensures phase badge is clipped if too far */
+    transition:
+      transform 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+  }
+
+  /* Card hover effect */
+  .animated-strategy-card:hover {
+    transform: translateY(-8px); /* Lifts the card */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+  }
+
+  /* Icon container styling */
+  .strategy-icon-container {
+    background-color: #287354; /* green-800 */
+    border-radius: 9999px; /* full circle */
+    padding: 1rem; /* p-4 */
+    margin-bottom: 1.5rem; /* mb-6 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+      background-color 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+    position: relative;
+    z-index: 10; /* Ensure icon is above other elements */
+  }
+
+  /* Icon hover effect (when card is hovered) */
+  .animated-strategy-card:hover .strategy-icon-container {
+    background-color: #287354; /* green-800 */
+    transform: scale(1.05); /* Slightly zooms the icon container */
+  }
+
+  .animated-strategy-card:hover .strategy-icon-container img {
+    filter: brightness(0) invert(1); /* Makes the SVG icon white */
+  }
+
+  /* Phase badge styling */
+  .phase-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #287354; /* green-400 */
+    color: white;
+    font-size: 0.75rem; /* text-xs */
+    font-weight: 600; /* font-semibold */
+    padding: 0.25rem 0.75rem; /* px-3 py-1 */
+    border-radius: 9999px; /* rounded-full */
+    z-index: 20;
+  }
+</style>
+
+<section id="PMC_cycle" class="py-20 bg-gray-50 sm:py-28" style="font-family: 'Poppins'">
   <div class="max-w-7xl px-8 mx-auto sm:px-10 lg:px-16">
     <div class="text-center mb-16">
       <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
         Our Business Strategy
       </h2>
-      <div class="w-24 h-1 mt-4 mx-auto bg-blue-600 rounded"></div>
+      <div class="w-24 h-1 mt-4 mx-auto bg-yellow-500 rounded"></div>
       <p class="mt-6 text-gray-600 text-lg leading-relaxed tracking-wide max-w-3xl mx-auto">
-        Our strategy is meticulously crafted to ensure maximum value for our clients, guiding them through every step from project inception to commissioning.
+        Our proven methodology ensures successful project delivery by systematic
+        planning, execution, and monitoring at every stage of the project lifecycle.
       </p>
     </div>
 
-    <!-- Image showcasing the business process -->
-    <div class="w-full flex justify-center mb-16">
-      <img
-        src="/PMC__cycle.png"
-        alt="Project Management Process"
-        class="w-full h-auto max-w-4xl rounded-x2 shadow-2xl"
-      />
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center"
+    >
+      <div class="animated-strategy-card">
+        <span class="phase-badge">Phase 1</span>
+        <div class="strategy-icon-container">
+          <img src="/public/search.png" alt="Project Assessment Icon" class="w-10 h-10 text-green-800" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Project Assessment</h3>
+        <p class="text-sm text-gray-600">
+          Comprehensive feasibility studies and project evaluation
+        </p>
+      </div>
+
+      <div class="animated-strategy-card">
+        <span class="phase-badge">Phase 2</span>
+        <div class="strategy-icon-container">
+          <img src="/public/checklist.png" alt="Strategic Planning Icon" class="w-10 h-10 text-green-800" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Strategic Planning</h3>
+        <p class="text-sm text-gray-600">
+          Detailed project planning and resource allocation
+        </p>
+      </div>
+
+      <div class="animated-strategy-card">
+        <span class="phase-badge">Phase 3</span>
+        <div class="strategy-icon-container">
+          <img src="/public/Implement.svg" alt="Implementation Icon" class="w-10 h-10 text-green-800" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Implementation</h3>
+        <p class="text-sm text-gray-600">
+          Systematic execution with continuous monitoring
+        </p>
+      </div>
+
+      <div class="animated-strategy-card">
+        <span class="phase-badge">Phase 4</span>
+        <div class="strategy-icon-container">
+          <img src="/public/bar-chart.png" alt="Quality Control Icon" class="w-10 h-10 text-green-800" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Quality Control</h3>
+        <p class="text-sm text-gray-600">
+          Rigorous quality assurance and progress tracking
+        </p>
+      </div>
+
+      <div class="animated-strategy-card">
+        <span class="phase-badge">Phase 5</span>
+        <div class="strategy-icon-container">
+          <img src="/public/team.png" alt="Stakeholder Management Icon" class="w-10 h-10 text-green-800" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Stakeholder Management</h3>
+        <p class="text-sm text-gray-600">
+          Effective communication and relationship management
+        </p>
+      </div>
+
+      <div class="animated-strategy-card">
+        <span class="phase-badge">Phase 6</span>
+        <div class="strategy-icon-container">
+          <img src="/public/Checkmark.svg" alt="Project Closure Icon" class="w-10 h-10 text-green-800" />
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-2">Project Closure</h3>
+        <p class="text-sm text-gray-600">
+          Successful handover and post-implementation support
+        </p>
+      </div>
     </div>
   </div>
 </section>

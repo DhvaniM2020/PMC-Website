@@ -1,33 +1,51 @@
 <header id="navbar" class="sticky top-0 z-50 bg-white transition-all duration-300 shadow">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <!-- Logo + Contact -->
+  <div class="max-w-8xl mx-auto px-6 py-3 flex items-center justify-around">
     <div class="flex items-center space-x-6">
       <a href="/" class="flex items-center space-x-2">
-        <img src="/Abhyuday-New-Logo.jpg" alt="Abhyuday Logo" class="rounded-full h-18 w-auto transition-transform duration-300 ease-in-out hover:scale-120" />
+        <img src="/Abhyuday-New-Logo.jpg" alt="Abhyuday Logo" class="rounded-full h-15 w-auto transition-transform duration-300 ease-in-out hover:scale-120" />
         <span
-          class="text-blue-600 font-bold text-3xl tracking-normal"
-          style="font-family: 'poppins';  font-size: clamp(1.0rem, 1.8vw, 1.8rem);"
+          class="text-2xl tracking-normal"
+          style="font-family: 'poppins'; font-size: clamp(1.5rem, 1.5vw, 1.5rem); line-height: 1.0;"
         >
-          ABHYUDAY BHARAT PROJECTS
+          <span class="font-semibold text-black-600">ABHYUDAY BHARAT PROJECTS</span><br>
+          <span class="text-[#287354] font-semibold" style="font-size: 0.7em;">Project management consultancy</span>
         </span>
       </a>
     </div>
 
-    <!-- Nav -->
-    <nav class="hidden md:flex space-x-8 text-md font-medium text-gray-700">
-      <a href="#" class="hover:text-blue-600" style="font-family: 'Poppins'">Home</a>
-      <a href="#about" class="hover:text-blue-600" style="font-family: 'Poppins'">About Us</a>
-      <a href="#CoreServices" class="hover:text-blue-600" style="font-family: 'Poppins'">Our Sectors</a>
-      <a href="#Casestudies" class="hover:text-blue-600"   style="font-family: 'Poppins'">Projects</a>
-      <!-- <a href="#location" class="hover:text-blue-600" style="font-family: 'Poppins'">Location</a> -->
-    </nav>
-
-    <div class="flex items-center space-x-6">
-      <a href="#contact" class="bg-blue-600 hover:b g-green-700 text-white px-4 py-2 rounded-md  text-md font-medium transition hover:scale-107"
-      style="font-family: 'Poppins'">
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex space-x-6 items-center text-md font-medium text-gray-700">
+      <a href="#" class="nav-link relative hover:text-green-800" style="font-family: 'Poppins'">Home</a>
+      <a href="#about" class="nav-link relative hover:text-green-800" style="font-family: 'Poppins'">About Us</a>
+      <a href="#CoreServices" class="nav-link relative hover:text-green-800" style="font-family: 'Poppins'">Services</a>
+      <a href="#PMC_cycle" class="nav-link relative hover:text-green-800" style="font-family: 'Poppins'">Strategy</a>
+      <a href="#Casestudies" class="nav-link relative hover:text-green-800" style="font-family: 'Poppins'">Projects</a>
+      <a href="#contact" class="bg-green-800 hover:bg-green-700 text-white px-4 py-2 rounded-md text-md font-medium transition hover:scale-107" style="font-family: 'Poppins'">
         Contact Us
       </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden flex items-center">
+      <button id="mobile-menu-btn" class="text-gray-900 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
     </div>
+  </div>
+
+  <!-- Mobile Menu Content -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg py-2">
+    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" style="font-family: 'Poppins'">Home</a>
+    <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" style="font-family: 'Poppins'">About Us</a>
+    <a href="#CoreServices" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" style="font-family: 'Poppins'">Services</a>
+    <a href="#Casestudies" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" style="font-family: 'Poppins'">Projects</a>
+    <a href="#PMC_cycle" class="block px-4 py-2 text-gray-700 hover:bg-gray-100" style="font-family: 'Poppins'">Strategy</a>
+    <a href="#contact" class="block px-4 py-2 text-white bg-green-800 hover:bg-green-700" style="font-family: 'Poppins'">Contact Us</a>
+  </div>
+</header>
+    
   </div>
 </header>
 
@@ -44,4 +62,33 @@
       }
     }
   });
+  
+  // Mobile menu toggle functionality
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
+
+<style>
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: orange;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+</style>
 </script>

@@ -1,84 +1,53 @@
 ---
 interface Logo {
-  name: string;
-  logoUrl: string;
+  name: string;
+  logoUrl: string;
 }
 
 const logos: Logo[] = [
-  { name: "Ministry of Food Processing Industry", logoUrl: "/mofpi-logo.jpg" },
-  { name: "Gujarat Agro Industries Corporation", logoUrl: "/images.png" },
-  { name: "GUJCOMASOL", logoUrl: "/100-5.png" },
-  { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
-  { name: "INDEXT-b", logoUrl: "/indexta.png" },
-  { name: "PMFME", logoUrl: "/PMFME.png" },
-  { name: "Andra Bank", logoUrl: "/Andra bank.png" },
+  { name: "Ministry of Food Processing Industry", logoUrl: "/public/MOPFI.png" },
+  { name: "Gujarat Agro Industries Coporation", logoUrl: "/public/gujarat agro.png" },
+  { name: "Bank of Baroda", logoUrl: "/public/BankOfBarodaLogo.svg.png" },
+  { name: "iNDEXT-a", logoUrl: "/public/indexta.png" },
+  { name: "Prime Minister Formalization of Micro Food Processing", logoUrl: "/public/PMFME.png" },
+  { name: "Andra Bank", logoUrl: "/public/Andra bank.png" },
+  { name: "The Mehsana Urban Co.op. Bank Limited", logoUrl: "/public/mahesanabank.png" },
+//   { name: "Tamil Nadu Industrial Development Corporation", logoUrl: "/public/tnidc.svg" },
 ];
 ---
 
-<div id="empanelment" class="py-12 bg-white" style="font-family: Poppins, sans-serif">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-10">
-      <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-black tracking-wider">
-        In Partnership with key Government & Financial Institutions
-      </h3>
-    </div>
 
-    <!-- Desktop / Big Screen (Static Grid) -->
-    <div class="hidden md:grid grid-cols-7 gap-4 items-center justify-center">
-      {logos.map((logo) => (
-        <div class="flex justify-center items-center">
-          <img
-            class="h-30 w-auto object-contain opacity-80 transition-all duration-300 hover:opacity-100"
-            src={logo.logoUrl}
-            alt={logo.name}
-            title={logo.name}
-          />
-        </div>
-      ))}
-    </div>
+<div id="empanelment" class="py-12 bg-gray-50 font-[Poppins,sans-serif]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+        <div class="bg-white rounded-3xl shadow-lg border border-gray-200 p-6">
 
-    <!-- Mobile / Small Screen (Horizontal Scroll with Arrows) -->
-    <div class="relative md:hidden">
-      <!-- Scrollable Container -->
-      <div id="logoScroll" class="flex overflow-x-auto gap-6 scrollbar-hide scroll-smooth px-8">
-        {logos.map((logo) => (
-          <div class="flex-shrink-0 flex justify-center items-center">
-            <img
-              class="h-16 w-auto object-contain opacity-80 transition-all duration-300 hover:opacity-100"
-              src={logo.logoUrl}
-              alt={logo.name}
-              title={logo.name}
-            />
-          </div>
-        ))}
-      </div>
+            <div class="text-center mb-10">
+        <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 tracking-tight">
+          Our Empanelment
+        </h4>
+                <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
+      </div>
 
-      <!-- Left Arrow -->
-      <button
-        onclick="document.getElementById('logoScroll').scrollBy({ left: -200, behavior: 'smooth' })"
-        class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-2 rounded-full"
-      >
-        ◀
-      </button>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 justify-center mt-10">
+        {logos.map((logo) => (
+          <div class="relative cursor-pointer p-4 transition-all duration-300 group rounded-xl">
+            <div class="absolute inset-0 bg-amber-700 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl"></div>
+            <div class="flex flex-col items-center justify-center space-y-3 relative z-10">
+                            <div class="w-28 h-28 rounded-xl bg-white flex items-center justify-center border border-gray-200">
+                <img
+                  class="h-24 w-24 object-contain"
+                  src={logo.logoUrl}
+                  alt={logo.name}
+                  title={logo.name}
+                />
+            </div>
+                            <p class="text-center text-sm font-semibold text-gray-800 leading-tight">{logo.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-      <!-- Right Arrow -->
-      <button
-        onclick="document.getElementById('logoScroll').scrollBy({ left: 200, behavior: 'smooth' })"
-        class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-2 rounded-full"
-      >
-        ▶
-      </button>
-    </div>
-  </div>
+    </div>
+  </div>
 </div>
-
-<style>
-  /* Hide scrollbar for mobile */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>

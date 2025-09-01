@@ -1,53 +1,53 @@
 ---
 interface Logo {
-  name: string;
-  logoUrl: string;
+  name: string;
+  logoUrl: string;
 }
 
 const logos: Logo[] = [
-  { name: "Ministry of Food Processing Industry", logoUrl: "/MOPFI.png" },
-  { name: "Gujarat Agro Industries Coporation", logoUrl: "/gujarat agro.png" },
-  { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
-  { name: "iNDEXT-a", logoUrl: "/indexta.png" },
-  { name: "Prime Minister Formalization of Micro Food Processing", logoUrl: "/PMFME.png" },
-  { name: "Andra Bank", logoUrl: "/Andra bank.png" },
-  { name: "The Mehsana Urban Co.op. Bank Limited", logoUrl: "/mahesanabank.png" },
-//   { name: "Tamil Nadu Industrial Development Corporation", logoUrl: "/tnidc.svg" },
+  { name: "Ministry of Food Processing Industry", logoUrl: "/MOPFI.png" },
+  { name: "Gujarat Agro Industries Coporation", logoUrl: "/gujarat agro.png" },
+  { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
+  { name: "iNDEXT-a", logoUrl: "/indexta.png" },
+  { name: "Prime Minister Formalization of Micro Food Processing", logoUrl: "/PMFME.png" },
+  { name: "Andra Bank", logoUrl: "/Andra bank.png" },
+  { name: "The Mehsana Urban Co.op. Bank Limited", logoUrl: "/mahesanabank.png" },
+// { name: "Tamil Nadu Industrial Development Corporation", logoUrl: "/tnidc.svg" },
 ];
 ---
 
 
 <div id="empanelment" class="py-12 bg-gray-50 font-[Poppins,sans-serif]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-        <div class="bg-white rounded-3xl shadow-lg border border-gray-200 p-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+        <div class="bg-white rounded-3xl shadow-lg border border-gray-200 p-6">
 
-            <div class="text-center mb-10">
-        <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 tracking-tight">
-          Our Empanelment
-        </h4>
-                <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
-      </div>
+            <div class="text-center mb-10">
+        <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 tracking-tight">
+          Our Empanelment
+        </h4>
+                <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
+      </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 justify-center mt-10">
-        {logos.map((logo) => (
-          <div class="relative cursor-pointer p-4 transition-all duration-300 group rounded-xl">
-            <div class="absolute inset-0 bg-amber-700 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl"></div>
-            <div class="flex flex-col items-center justify-center space-y-3 relative z-10">
-                            <div class="w-28 h-28 rounded-xl bg-white flex items-center justify-center border border-gray-200">
-                <img
-                  class="h-24 w-24 object-contain"
-                  src={logo.logoUrl}
-                  alt={logo.name}
-                  title={logo.name}
-                />
-            </div>
-                            <p class="text-center text-sm font-semibold text-gray-800 leading-tight">{logo.name}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 justify-center mt-10">
+        {logos.map((logo) => (
+          <div class="relative cursor-pointer p-4 transition-all duration-300 group rounded-xl">
+            <div class="absolute inset-0 bg-orange-700 opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-xl"></div>
+            <div class="flex flex-col items-center justify-center space-y-3 relative z-10">
+                    <div class="w-28 h-28 rounded-xl bg-white flex items-center justify-center border border-gray-200">
+                <img
+                  class="h-24 w-24 object-contain"
+                  src={logo.logoUrl}
+                  alt={logo.name}
+                  title={logo.name}
+                />
+            </div>
+                    <p class="text-center text-sm font-semibold text-gray-800 leading-tight">{logo.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-    </div>
-  </div>
+    </div>
+  </div>
 </div>

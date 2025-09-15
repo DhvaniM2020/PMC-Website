@@ -1,45 +1,67 @@
 ---
- // This is the Astro component file for the footer section.
- // It uses Tailwind CSS for styling.
+// This is the Astro component file for the footer section.
+// It uses Tailwind CSS for styling.
 ---
 
 <footer class="bg-green-800 text-gray-300 py-12 font-[Poppins,sans-serif]">
-  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-    
+  <div
+    class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+  >
     <!-- Logo & About Section -->
     <div>
       <div class="flex items-center mb-4">
-        <img src="/abhyuday logo.svg" alt="Abhyuday Bharat Logo" class="w-12 h-12 mr-3" />
+        <img
+          src="/abhyuday logo.svg"
+          alt="Abhyuday Bharat Logo"
+          class="w-12 h-12 mr-3"
+        />
         <div>
           <h3 class="text-x1 font-bold text-white">Abhyuday Bharat Pvt.Ltd</h3>
           <p class="text-xs">Project Management Consultancy</p>
         </div>
       </div>
       <p class="text-sm mt-4 leading-relaxed">
-        A leading Project Management Consulting Company having expertise in Industrial Cluster Development,
-        Techno Economic Services and Turnkey Projects for Industries, Businesses and Government Agencies
+        A leading Project Management Consulting Company having expertise in
+        Industrial Cluster Development, Techno Economic Services and Turnkey
+        Projects for Industries, Businesses and Government Agencies
       </p>
 
       <!-- Social Icons -->
       <div class="flex space-x-4 mt-6">
-        <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer"
+        <a
+          href="https://www.facebook.com/yourpage"
+          target="_blank"
+          rel="noopener noreferrer"
           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
-          aria-label="Facebook">
+          aria-label="Facebook"
+        >
           <img src="/facebook.png" alt="Facebook" class="w-6 h-6" />
         </a>
-        <a href="https://www.twitter.com/yourpage" target="_blank" rel="noopener noreferrer"
+        <a
+          href="https://www.twitter.com/yourpage"
+          target="_blank"
+          rel="noopener noreferrer"
           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
-          aria-label="Twitter">
+          aria-label="Twitter"
+        >
           <img src="/twitter.png" alt="Twitter" class="w-6 h-6" />
         </a>
-        <a href="https://www.linkedin.com/company/yourcompany" target="_blank" rel="noopener noreferrer"
+        <a
+          href="https://www.linkedin.com/company/yourcompany"
+          target="_blank"
+          rel="noopener noreferrer"
           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
-          aria-label="LinkedIn">
+          aria-label="LinkedIn"
+        >
           <img src="/linkedin.png" alt="LinkedIn" class="w-6 h-6" />
         </a>
-        <a href="https://www.instagram.com/yourpage" target="_blank" rel="noopener noreferrer"
+        <a
+          href="https://www.instagram.com/yourpage"
+          target="_blank"
+          rel="noopener noreferrer"
           class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors duration-200"
-          aria-label="Instagram">
+          aria-label="Instagram"
+        >
           <img src="/instagram.png" alt="Instagram" class="w-6 h-6" />
         </a>
       </div>
@@ -49,11 +71,18 @@
     <div>
       <h3 class="text-lg font-bold text-white mb-4">Quick Links</h3>
       <ul class="space-y-3 text-sm">
-        <li><a href="#about" class="hover:text-orange-300">About Us</a></li>
-        <li><a href="#CoreServices" class="hover:text-orange-300">Our Services</a></li>
-        <li><a href="#PMC_cycle" class="hover:text-orange-300">Business Strategy</a></li>
-        <li><a href="#Casestudies" class="hover:text-orange-300">Projects</a></li>
-        <li><a href="#" class="hover:text-orange-300">Contact</a></li>
+        <li><a href="/#about" class="hover:text-orange-300">About Us</a></li>
+        <li>
+          <a href="/#CoreServices" class="hover:text-orange-300">Our Services</a>
+        </li>
+        <li>
+          <a href="/#PMC_cycle" class="hover:text-orange-300"
+            >Business Strategy</a>
+        </li>
+        <li>
+          <a href="/#Casestudies" class="hover:text-orange-300">Projects</a>
+        </li>
+        <li><a href="/#contact" class="hover:text-orange-300">Contact</a></li>
       </ul>
     </div>
 
@@ -75,26 +104,59 @@
       <h3 class="text-lg font-bold text-white mb-4">Contact Info</h3>
       <ul class="space-y-4 text-sm">
         <li class="flex items-start gap-2">
-          <img src="/maps-and-flags 2.svg" alt="Location" class="w-5 h-5 mt-0.5 text-gray-300" />
-         <span>1001 & 1020 Time Square Arcade,<br />Nr Bagban party plot,Thaltej Shilaj Road, Thaltej 380059, <br /> Ahmedabad, Gujarat, India</span>
+          <img
+            src="/maps-and-flags 2.svg"
+            alt="Location"
+            class="w-5 h-5 mt-0.5 text-gray-300"
+          />
+          <span
+            >1001 & 1020 Time Square Arcade,<br />Nr Bagban party plot,Thaltej
+            Shilaj Road, Thaltej 380059, <br /> Ahmedabad, Gujarat, India</span
+          >
         </li>
         <li class="flex items-start gap-2">
-          <img src="/Phone.svg" alt="Phone" class="w-5 h-5 mt-0.5 text-gray-300" />
+          <img
+            src="/Phone.svg"
+            alt="Phone"
+            class="w-5 h-5 mt-0.5 text-gray-300"
+          />
           <div>
-            <a href="tel:+911244567890" class="block hover:text-orange-300">+91 124 456 7890</a>
-            <a href="tel:+911244567891" class="block hover:text-orange-300">+91 124 456 7891</a>
+            <a href="tel:+911244567890" class="block hover:text-orange-300"
+              >+91 124 456 7890</a
+            >
+            <a href="tel:+911244567891" class="block hover:text-orange-300"
+              >+91 124 456 7891</a
+            >
           </div>
         </li>
         <li class="flex items-start gap-2">
-          <img src="/Mail.svg" alt="Email" class="w-5 h-5 mt-0.5 text-gray-300" />
+          <img
+            src="/Mail.svg"
+            alt="Email"
+            class="w-5 h-5 mt-0.5 text-gray-300"
+          />
           <div>
-            <a href="mailto:info@pmcelite.com" class="block hover:text-orange-300">info@pmcelite.com</a>
-            <a href="mailto:projects@pmcelite.com" class="block hover:text-orange-300">projects@pmcelite.com</a>
+            <a
+              href="mailto:info@pmcelite.com"
+              class="block hover:text-orange-300">info@pmcelite.com</a
+            >
+            <a
+              href="mailto:projects@pmcelite.com"
+              class="block hover:text-orange-300">projects@pmcelite.com</a
+            >
           </div>
         </li>
         <li class="flex items-start gap-2">
-          <img src="/Globe.svg" alt="Website" class="w-5 h-5 mt-0.5 text-gray-300" />
-          <a href="http://www.pmcelite.com" target="_blank" class="hover:text-orange-300">
+          <img
+            src="/Globe.svg"
+            alt="Website"
+            class="w-5 h-5 mt-0.5 text-gray-300"
+          />
+          <a
+            href="http://www.pmcelite.com"
+            target="_blank"
+            class="hover:text-orange-300"
+          >
             www.pmcelite.com
           </a>
         </li>
@@ -104,12 +166,20 @@
 
   <!-- Footer Bottom -->
   <div class="mt-10 pt-3 text-center text-sm">
-    <div class="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto px-4 border-t border-white-800 pt-3">
+    <div
+      class="flex flex-col sm:flex-row justify-between items-center max-w-7xl mx-auto px-4 border-t border-white-800 pt-3"
+    >
       <p>© 2025 Abhyuday Bharat Project. All rights reserved.</p>
       <div class="flex space-x-4 mt-2 sm:mt-0">
-        <a href="#" class="hover:text-orange-300 transition-colors duration-200">Privacy Policy</a>
-        <a href="#" class="hover:text-orange-300 transition-colors duration-200">Terms of Service</a>
-        <a href="#" class="hover:text-orange-300 transition-colors duration-200">Sitemap</a>
+        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
+          >Privacy Policy</a
+        >
+        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
+          >Terms of Service</a
+        >
+        <a href="#" class="hover:text-orange-300 transition-colors duration-200"
+          >Sitemap</a
+        >
       </div>
     </div>
   </div>

@@ -1,34 +1,87 @@
 ---
-// This is the Astro component file for the Core Services section.
-// It uses Tailwind CSS for styling.
+// This is the Astro component file for the Core Services section with animation.
+// It uses Tailwind CSS for styling and Astro's built-in animation integration.
 ---
 
 <style>
-  /*
-      Custom styles to handle the hover effects on the animated-card.
-      The hover effects on the icon-container have been removed.
-    */
-  .animated-card {
+  /* Base static card container */
+  .static-card {
+    height: 100%;
+    border: 1px solid #c2e0b5;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    height: 100%;
-    border-radius: 12px;
-    transition:
-      transform 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
-    cursor: pointer;
+    color: #333;
+    /* transition for animation */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
   }
 
-  .animated-card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px); /* Adds a slight lift effect on hover */
-  }
-
-  /* The icon-container styles are now for positioning only, no hover transforms */
-  .icon-container {
+  /* Container for the image and heading */
+  .card-top {
+    position: relative;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1.5rem;
+    height: 170px; /* Adjust height as needed */
+  }
+
+  /* Overlay for the image to make text readable */
+  .card-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  /* Ensure heading is on top of the overlay */
+  .card-top h3 {
+    position: relative;
+    z-index: 2;
+    color: white;
+    margin-bottom: 0;
+  }
+
+  /* Styling for the image */
+  .card-top .card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  /* Container for the bottom content (icon and paragraph) */
+  .card-bottom {
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  .card-bottom p {
+    color: #4b5563;
+    margin-top: 0.5rem;
+  }
+
+  /* Image on the back (now on the front, at the bottom) */
+  .card-bottom .back-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
   }
 </style>
 
@@ -37,161 +90,67 @@
   class="min-h-[100vh] flex items-top py-10 bg-gradient-to-b from-white via-white to-[#e6f4d6] overflow-x-hidden pt-20 pb-10 sm:py-20 font-[poppins,sans-serif]"
 >
   <div class="container mx-auto px-8">
-    <div class="text-center mb-12 mt-12">
+    <div
+      class="text-center mb-12 mt-12"
+      data-astro-transition="fade-in slide-up"
+    >
       <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
         Our Services
       </h2>
       <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
       <p class="mt-6 max-w-4xl mx-auto text-lg text-gray-600">
-        We specialize in delivering comprehensive project management services
-        across diverse industry sectors, bringing domain expertise and proven
-        methodologies to every project.
+        We specialize in delivering comprehensive project management services across diverse industry sectors, bringing domain expertise and proven methodologies to every project.
       </p>
     </div>
-
+    
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center mb-8"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center mb-8 mx-auto max-w-7xl"
     >
-      <div
-        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
-      >
-        <div class="icon-container mb-4">
-          <img src="/Agri.svg" alt="Agri Icon" class="w-16 h-16" />
+      <div class="static-card" data-astro-transition="fade-in slide-up" data-astro-transition-delay="100ms">
+        <div class="card-top">
+          <img src="/DPR.jpg" alt="DPR" class="card-image" />
+          <h3 class="text-2xl font-bold">Detail Report Project</h3>
         </div>
-        <div class="pt-4 pb-4 text-left">
-          <h3 class="text-xl font-bold mb-2">Agri & Food Processing</h3>
-          <p class="text-sm text-gray-600">
-            Defense manufacturing facilities, aerospace infrastructure, testing
-            laboratories, and security installations.
+        <div class="card-bottom">
+          <p class="text-base text-gray-600">
+            To provide exceptional project management consulting services that deliver successful outcomes for infrastructure and development projects across diverse sectors.
           </p>
-        </div>
-        <div
-          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
-        >
-          <div>
-            <p class="text-base text-green-800 font-bold">12+ Projects</p>
-            <p class="text-xs text-green-800">Completed</p>
-          </div>
-          <div>
-            <p class="text-base text-green-800 font-bold">₹1200+ Crores</p>
-            <p class="text-xs text-text-green-800">Project Value</p>
-          </div>
         </div>
       </div>
 
-      <div
-        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
-      >
-        <div class="icon-container mb-4">
-          <img src="/Aerospaces.svg" alt="Agri Icon" class="w-16 h-16" />
+      <div class="static-card" data-astro-transition="fade-in slide-up" data-astro-transition-delay="200ms">
+        <div class="card-top">
+          <img src="/Fesability study.jpg" alt="Fesability study" class="card-image" />
+          <h3 class="text-2xl font-bold">Feasibility Study</h3>
         </div>
-        <div class="pt-4 pb-4 text-left">
-          <h3 class="text-xl font-bold mb-2">Aerospace & Defence</h3>
-          <p class="text-sm text-gray-600">
-            Defense manufacturing facilities, aerospace infrastructure, testing
-            laboratories, and security installations.
+        <div class="card-bottom">
+          <p class="text-base text-gray-600">
+            To be the leading PMC firm recognized for excellence, innovation, and reliability in project delivery, contributing to national development and growth.
           </p>
-        </div>
-        <div
-          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
-        >
-          <div>
-            <p class="text-base text-green-800 font-bold">12+ Projects</p>
-            <p class="text-xs text-green-800">Completed</p>
-          </div>
-          <div>
-            <p class="text-base text-green-800 font-bold">₹1200+ Crores</p>
-            <p class="text-xs text-text-green-800">Project Value</p>
-          </div>
         </div>
       </div>
 
-      <div
-        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
-      >
-        <div class="icon-container mb-4">
-          <img
-            src="/Electronics.svg"
-            alt="Agri Icon"
-            class="w-16 h-16"
-          />
+      <div class="static-card" data-astro-transition="fade-in slide-up" data-astro-transition-delay="300ms">
+        <div class="card-top">
+          <img src="/detail enginerring.jpg" alt="Detail enginerring" class="card-image" />
+          <h3 class="text-2xl font-bold">Detail Engineering</h3>
         </div>
-        <div class="pt-4 pb-4 text-left">
-          <h3 class="text-xl font-bold mb-2">Electronics & IT</h3>
-          <p class="text-sm text-gray-600">
-            IT parks, electronics manufacturing units, data centers, and
-            technology infrastructure projects.
+        <div class="card-bottom">
+          <p class="text-base text-gray-600">
+            Integrity, excellence, innovation, and commitment drive everything we do. We build lasting partnerships through trust and exceptional service delivery.
           </p>
-        </div>
-        <div
-          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
-        >
-          <div>
-            <p class="text-base text-green-800 font-bold">38+ Projects</p>
-            <p class="text-xs text-green-800">Completed</p>
-          </div>
-          <div>
-            <p class="text-base text-green-800 font-bold">₹950+ Crores</p>
-            <p class="text-xs text-green-800">Project Value</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="w-full lg:w-2/3 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 justify-center mb-6"
-    >
-      <div
-        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
-      >
-        <div class="icon-container mb-4">
-          <img src="/Textile.svg" alt="Agri Icon" class="w-16 h-16" />
-        </div>
-        <div class="pt-4 pb-4 text-left">
-          <h3 class="text-xl font-bold mb-2">Textile</h3>
-          <p class="text-sm text-gray-600">
-            Textile manufacturing units, garment factories, dyeing facilities,
-            and textile infrastructure development.
-          </p>
-        </div>
-        <div
-          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
-        >
-          <div>
-            <p class="text-base text-gray-800 font-bold">62+ Projects</p>
-            <p class="text-xs text-green-800">Completed</p>
-          </div>
-          <div>
-            <p class="text-base text-green-800 font-bold">₹1100+ Crores</p>
-            <p class="text-xs text-green-800">Project Value</p>
-          </div>
         </div>
       </div>
 
-      <div
-        class="animated-card bg-white rounded-xl shadow-2xl border border-gray-200 p-6"
-      >
-        <div class="icon-container mb-4">
-          <img src="/Tourism.svg" alt="Agri Icon" class="w-16 h-16" />
+      <div class="static-card" data-astro-transition="fade-in slide-up" data-astro-transition-delay="400ms">
+        <div class="card-top">
+          <img src="/turnkey project.jpg" alt="Turnkey project" class="card-image" />
+          <h3 class="text-2xl font-bold">Turnkey Project/ EPC</h3>
         </div>
-        <div class="pt-4 pb-4 text-left">
-          <h3 class="text-xl font-bold mb-2">Tourism</h3>
-          <p class="text-sm text-gray-600">
-            Resort developments, tourism infrastructure, hospitality projects,
-            and recreational facility construction.
+        <div class="card-bottom">
+          <p class="text-base text-gray-600">
+            Experienced professionals with diverse expertise in engineering, management, and consulting, united by a passion for successful project delivery.
           </p>
-        </div>
-        <div
-          class="mt-auto pt-4 border-t border-gray-200 flex justify-between items-center text-sm text-gray-700 font-semibold"
-        >
-          <div>
-            <p class="text-base text-green-800 font-bold">28+ Projects</p>
-            <p class="text-xs text-green-800">Completed</p>
-          </div>
-          <div>
-            <p class="text-base text-green-800 font-bold">₹650+ Crores</p>
-            <p class="text-xs text-green-800">Project Value</p>
-          </div>
         </div>
       </div>
     </div>

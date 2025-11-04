@@ -1,158 +1,263 @@
----
-// This is the Astro component file for the Core Services section with animation.
-// It uses Tailwind CSS for styling and Astro's built-in animation integration.
----
-
 <style>
-  /* Base static card container */
-  .static-card {
-    height: 100%;
-    border: 1px solid #c2e0b5;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    color: #333;
-    /* transition for animation */
-    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+/* 🌿 Core Services Section */
+#CoreServices {
+  background: #F2F5F4;
+  font-family: 'Poppins', sans-serif;
+  padding: 6rem 1rem;
+}
+
+/* Remove fixed heading size — Tailwind handles it */
+#CoreServices h2 {
+  font-weight: 700;
+  text-align: center;
+  color: #000000;
+}
+
+#CoreServices .underline {
+  width: 6rem;
+  height: 0.25rem;
+  background-color: #facc15; /* yellow-500 */
+  border-radius: 9999px;
+  margin: 1rem auto 0 auto;
+}
+
+#CoreServices p.section-desc {
+  text-align: center;
+  color: #4b5563;
+  max-width: 800px;
+  margin: 1.5rem auto 4rem auto;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+/* 🌿 Brick-like Grid Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 🌿 Service Card Styling */
+.service-item {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  --offsetY: 0px;
+  transform: translateY(var(--offsetY));
+}
+
+/* 🌿 Brick stagger effect */
+
+/* 🧱 For large desktops (≥1200px): normal 2-column brick */
+@media (min-width: 1200px) {
+  .service-item:nth-child(even) {
+    --offsetY: 40px;
+  }
+}
+
+/* 💻 For laptops (992px–1199px): perfect 3-column brick layout */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .service-item:nth-child(3n + 2) {
+    --offsetY: 40px;
   }
 
-  /* Container for the image and heading */
-  .card-top {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 1.5rem;
-    height: 170px; /* Adjust height as needed */
+  .service-item:nth-child(3n + 1),
+  .service-item:nth-child(3n + 3) {
+    --offsetY: 0px;
+  }
+}
+
+/* 📱 For tablets and below (<992px): no offset */
+@media (max-width: 991px) {
+  .service-item {
+    --offsetY: 0px;
+    transform: translateY(0);
+  }
+}
+
+/* Hover */
+.service-item:hover {
+  transform: translateY(calc(var(--offsetY) - 10px));
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* 🌿 Replace dot with U-Pin */
+.service-item::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background-image: url('/upin.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateX(-50%) rotate(-3deg);
+  z-index: 2;
+}
+
+/* Image/Icon inside card */
+.service-item img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+/* Headings */
+.service-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2b722e;
+  margin-bottom: 0.5rem;
+}
+
+/* Description */
+.service-item p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Optional connector line */
+.services-grid::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #012717, transparent);
+  transform: translateX(-50%);
+  opacity: 0.4;
+}
+
+/* 🌿 Responsive tweaks */
+@media (max-width: 1024px) {
+  .service-item::before {
+    top: -13px;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-item:nth-child(even) {
+    transform: none;
   }
 
-  /* Overlay for the image to make text readable */
-  .card-top::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+  .services-grid::before {
+    display: none;
   }
 
-  /* Ensure heading is on top of the overlay */
-  .card-top h3 {
-    position: relative;
-    z-index: 2;
-    color: white;
-    margin-bottom: 0;
+  .service-item::before {
+    top: -13px;
+    width: 24px;
+    height: 24px;
   }
-
-  /* Styling for the image */
-  .card-top .card-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  /* Container for the bottom content (icon and paragraph) */
-  .card-bottom {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1.5rem;
-    text-align: left;
-  }
-
-  .card-bottom p {
-    color: #4b5563;
-    margin-top: 0.5rem;
-  }
-
-  /* Image on the back (now on the front, at the bottom) */
-  .card-bottom .back-image {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin-bottom: 0.5rem;
-  }
+}
 </style>
 
-<section
-  id="CoreServices"
-  class="min-h-[100vh] flex items-top py-10 bg-gradient-to-b from-white via-white to-[#e6f4d6] overflow-x-hidden pt-20 pb-10 sm:py-20 font-[poppins,sans-serif]"
->
-  <div class="container mx-auto px-8">
-    <div
-      class="text-center mb-12 mt-12"
-      data-astro-transition="fade-in slide-up"
-    >
+<section id="CoreServices">
+  <div class="container mx-auto px-6">
+    
+    <!-- 🌿 Unified Heading (Exact same as Sectors Section) -->
+    <div class="text-center">
       <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
         Our Services
       </h2>
-      <div class="w-24 h-1 mx-auto mt-4 bg-yellow-500 rounded"></div>
-      <p class="mt-6 max-w-4xl mx-auto text-lg text-gray-600">
+      <div class="w-24 h-1 mt-4 mx-auto bg-green-700 rounded"></div>
+      <p class="mt-6 max-w-4xl mx-auto text-lg mb-10 text-gray-600">
         We specialize in delivering comprehensive project management services across diverse industry sectors, bringing domain expertise and proven methodologies to every project.
       </p>
     </div>
-    
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center mb-8 mx-auto max-w-7xl"
-    >
-      <div class="static-card" data-astro-transition="fade-in slide-up" data-astro-transition-delay="100ms">
-        <div class="card-top">
-          <img src="/DPR.jpg" alt="DPR" class="card-image" />
-          <h3 class="text-2xl font-bold">Detail Report Project</h3>
-        </div>
-        <div class="card-bottom">
-          <p class="text-base text-gray-600">
-            To provide exceptional project management consulting services that deliver successful outcomes for infrastructure and development projects across diverse sectors.
-          </p>
-        </div>
+
+    <!-- 🌿 Services Grid -->
+    <div class="services-grid mt-16">
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/1.png" alt="Project Conceptualization">
+        <h3>Project Conceptualization</h3>
+        <p>Defining project scope and strategies for successful execution.</p>
       </div>
 
-      <div class="static-card" data-astro-transition="fade-in slide-up" data-astro-transition-delay="200ms">
-        <div class="card-top">
-          <img src="/Fesability study.jpg" alt="Fesability study" class="card-image" />
-          <h3 class="text-2xl font-bold">Feasibility Study</h3>
-        </div>
-        <div class="card-bottom">
-          <p class="text-base text-gray-600">
-            To be the leading PMC firm recognized for excellence, innovation, and reliability in project delivery, contributing to national development and growth.
-          </p>
-        </div>
+      <div class="service-item border-1 border-green-700">
+        <img src="/2.png" alt="Feasibility Studies & DPR">
+        <h3>Feasibility Studies & DPR Preparation</h3>
+        <p>Detailed studies to ensure projects are viable and well-planned.</p>
       </div>
 
-      <div class="static-card" data-astro-transition="fade-in slide-up" data-astro-transition-delay="300ms">
-        <div class="card-top">
-          <img src="/detail enginerring.jpg" alt="Detail enginerring" class="card-image" />
-          <h3 class="text-2xl font-bold">Detail Engineering</h3>
-        </div>
-        <div class="card-bottom">
-          <p class="text-base text-gray-600">
-            Integrity, excellence, innovation, and commitment drive everything we do. We build lasting partnerships through trust and exceptional service delivery.
-          </p>
-        </div>
+      <div class="service-item border-1 border-green-700">
+        <img src="/3.png" alt="Government Compliances">
+        <h3>Support for Government Compliances & Incentives</h3>
+        <p>Assisting with grants, subsidies, and regulatory approvals.</p>
       </div>
 
-      <div class="static-card" data-astro-transition="fade-in slide-up" data-astro-transition-delay="400ms">
-        <div class="card-top">
-          <img src="/turnkey project.jpg" alt="Turnkey project" class="card-image" />
-          <h3 class="text-2xl font-bold">Turnkey Project/ EPC</h3>
-        </div>
-        <div class="card-bottom">
-          <p class="text-base text-gray-600">
-            Experienced professionals with diverse expertise in engineering, management, and consulting, united by a passion for successful project delivery.
-          </p>
-        </div>
+      <div class="service-item border-1 border-green-700">
+        <img src="/4.png" alt="Tender/Bid Management">
+        <h3>Tender/Bid Management</h3>
+        <p>Efficient handling of tendering and bid submission processes.</p>
       </div>
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/5.png" alt="Turnkey EPC Services">
+        <h3>Turnkey EPC Services</h3>
+        <p>Comprehensive turnkey solutions from design to execution.</p>
+      </div>
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/6.png" alt="Supervision & Monitoring">
+        <h3>Supervision & Monitoring</h3>
+        <p>Ensuring quality and timely delivery through monitoring.</p>
+      </div>
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/7.png" alt="Backward & Forward Linkages">
+        <h3>Backward & Forward Linkages</h3>
+        <p>Building strong supply chains and distribution networks.</p>
+      </div>
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/8.png" alt="Branding & Marketing">
+        <h3>Branding & Marketing</h3>
+        <p>Creating impactful brand presence and marketing strategies.</p>
+      </div>
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/9.png" alt="Financial & Technical Advisory">
+        <h3>Financial & Technical Advisory</h3>
+        <p>Providing expert guidance for funding and technical planning.</p>
+      </div>
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/10.png" alt="Policy & Subsidy Advisory">
+        <h3>Policy & Subsidy Advisory</h3>
+        <p>Helping businesses understand and leverage government policies.</p>
+      </div>
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/11.png" alt="Corporate Legal Advisory">
+        <h3>Corporate Legal Advisory</h3>
+        <p>Offering legal guidance on corporate and project matters.</p>
+      </div>
+
+      <div class="service-item border-1 border-green-700">
+        <img src="/12.png" alt="PMC & Detailed Engineering">
+        <h3>PMC & Detailed Engineering</h3>
+        <p>Complete project management and engineering solutions.</p>
+      </div>
+
     </div>
   </div>
 </section>

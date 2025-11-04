@@ -1,0 +1,182 @@
+---
+import Layout from "../layout/Layout.astro";
+---
+
+<Layout title="Major Projects - Our Portfolio">
+  <main class="bg-white font-[Poppins]">
+    <!-- Hero Section -->
+    <section class="relative w-full h-96 overflow-hidden">
+      <div class="absolute inset-0 bg-black/60 z-10"></div>
+      <img
+        src="/Paithan Food Park.jpg"
+        alt="Projects Hero"
+        class="w-full h-full object-cover transform scale-105"
+      />
+      <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-6">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-5xl md:text-5xl font-bold mb-6 tracking-tight">Our Projects</h1>
+          <div class="w-24 h-1 bg-green-700 mx-auto mb-6"></div>
+          <p class="text-xl md:text-xl font-light max-w-3xl mx-auto leading-relaxed">
+            Landmark initiatives shaping India's Agro & Food Processing ecosystem through innovation and excellence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section class="max-w-7xl mx-auto py-20 px-6">
+      <div class="text-center">
+        <!-- <h2 class="text-4xl font-bold text-gray-900 mb-4">Project Portfolio</h2>
+        <div class="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Transforming India's agricultural landscape through state-of-the-art infrastructure and sustainable solutions.
+        </p> -->
+      </div>
+
+      <div class="space-y-16">
+        {[
+          {
+            title: "Gujarat Agro Infrastructure Mega Food Park",
+            img: "/image4.png",
+            location: "Surat, Gujarat",
+            scope: "End-to-End Project Management",
+            status: "Completed",
+            desc: "Abhyuday played a pivotal role in conceptualizing and executing the Gujarat Agro Infrastructure Mega Food Park in Surat. Our team handled detailed project planning, infrastructure design, and cluster linkage assessments. The park aims to establish an integrated agro-industrial ecosystem that enhances processing capacity, reduces post-harvest losses, and promotes value addition for crops produced in South Gujarat, thus empowering farmers and entrepreneurs through sustainable agro-based development."
+          },
+          {
+            title: "Paithan Mega Food Park",
+            img: "/Paithan Food Park.jpg",
+            location: "Aurangabad, Maharashtra",
+            scope: "End-to-End Project Management",
+            status: "Completed",
+            desc: "Abhyuday served as Project Management Consultant and DPR expert for the Paithan Mega Food Park in Aurangabad, Maharashtra. The assignment included feasibility studies, cluster analysis, engineering design, procurement management, and project supervision. The park promotes regional agro-industrial growth by integrating processing, cold storage, and logistics facilities—enhancing value addition, employment generation, and competitiveness within the local agro-economy under the MoFPI Mega Food Park Scheme."
+          },
+          {
+            title: "GUJCOMASOL Integrated Agro Logistics Park",
+            img: "/gujco.jpg",
+            location: "Multiple Locations, Gujarat",
+            scope: "Turnkey Advisory & Project Management",
+            status: "Ongoing",
+            desc: "Abhyuday provided complete turnkey advisory and end-to-end project management for GUJCOMASOL's Multi-Model Integrated Agro Logistics Park. The project encompassed planning and execution of integrated processing facilities for peanuts, bananas, and mangoes across Gujarat districts like Mehsana, Amreli, Bharuch, Kutch, and Junagadh. Our scope included feasibility, master planning, engineering, procurement, and supervision to enhance Gujarat's agro-logistics and processing infrastructure."
+          },
+          {
+            title: "Zoram Mega Food Park",
+            img: "/zoram.png",
+            location: "Mizoram",
+            scope: "End-to-End Project Management",
+            status: "Completed",
+            desc: "Abhyuday provided end-to-end project management and DPR consultancy for the Zoram Mega Food Park in Mizoram. Our scope covered feasibility study, master planning, infrastructure design, and procurement management. The project strengthens Mizoram's agro-processing ecosystem by creating integrated facilities for collection, processing, and value addition, ensuring improved farmer linkages and market access across the Northeastern region."
+          },
+          {
+            title: "SCOJ FOODS – Frozen Food Manufacturing Facility",
+            img: "/scoj.png",
+            location: "Mehsana, Gujarat",
+            scope: "End-to-End Project Management",
+            status: "Ongoing",
+            desc: "Abhyuday provided comprehensive consultancy and project management services for Scoj Foods' modern frozen food manufacturing facility in Mehsana, Gujarat. The project encompassed master planning, process design, and infrastructure development for a state-of-the-art plant producing frozen fries, RTE snacks, and parathas. Focused on quality, efficiency, and sustainability, the facility integrates advanced food technology and stringent hygiene systems to deliver safe, nutritious, and high-quality frozen food products to households across India."
+          },
+        ].map((project, index) => (
+          <!-- Clean Modern Card Design -->
+          <div class="group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
+            <div class="lg:flex">
+              <!-- Image Section -->
+              <div class="lg:w-5/12 relative">
+                <div class="relative h-72 lg:h-full overflow-hidden">
+                  <img
+                    src={project.img}
+                    alt={project.title}
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <!-- Status Badge -->
+                <div class="absolute top-4 left-4">
+                  <span class={`px-3 py-2 rounded-lg text-sm font-semibold backdrop-blur-sm ${
+                    project.status === 'Completed' 
+                      ? 'bg-green-700/90 text-white' 
+                      : 'bg-blue-500/90 text-white'
+                  }`}>
+                    {project.status}
+                  </span>
+                </div>
+                
+                <!-- Location Badge -->
+                <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm font-medium text-gray-700">{project.location}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content Section -->
+              <div class="lg:w-7/12 p-8 lg:p-10">
+                <!-- Header -->
+                <div class="mb-6">
+                  <div class="flex items-center gap-3 mb-4">
+                    
+                    <span class="px-4 py-2 bg-gray-50 text-gray-700 text-sm font-semibold rounded-full border border-gray-200">
+                      {project.scope}
+                    </span>
+                  </div>
+                  <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 leading-tight">
+                    {project.title}
+                  </h3>
+                </div>
+
+                <!-- Description -->
+                <div class="prose prose-lg text-gray-600 leading-relaxed">
+                  <p class="text-gray-700">{project.desc}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Accent Border -->
+            <div class={`h-1 ${
+              project.status === 'Completed' 
+                ? 'bg-gradient-to-r from-green-400 to-emerald-500' 
+                : 'bg-gradient-to-r from-blue-400 to-cyan-500'
+            }`}></div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-emerald-900 to-green-800 py-20">
+      <div class="max-w-4xl mx-auto text-center px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
+        <p class="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Let's collaborate to build the next landmark in India's agro-processing infrastructure.
+        </p>
+        <a 
+          href="/#contact" 
+          class="inline-flex items-center px-8 py-4 bg-white text-emerald-800 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+        >
+          <span>Get In Touch</span>
+          <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Remove is:global to prevent affecting navbar */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .prose p {
+    margin-bottom: 1rem;
+  }
+  
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+</style>

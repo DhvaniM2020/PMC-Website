@@ -1,4 +1,4 @@
----
+<!-- ---
 interface Logo {
   name: string;
   logoUrl: string;
@@ -48,6 +48,46 @@ const logos: Logo[] = [
         ))}
       </div>
 
+    </div>
+  </div>
+</div> -->
+
+---
+interface Logo {
+  name: string;
+  logoUrl: string;
+}
+
+const logos: Logo[] = [
+  { name: "Ministry of Food Processing Industry", logoUrl: "/mofpi.png" },
+  { name: "Gujarat Agro Industries Corporation", logoUrl: "/gujarat agro.png" },
+  { name: "Andra Bank", logoUrl: "/andhra1.png" },
+  { name: "INDEXT-b", logoUrl: "/indexta.png" },
+  { name: "Bank of Baroda", logoUrl: "/BankOfBarodaLogo.svg.png" },
+  { name: "Prime Minister Formalization of Micro Food Processing", logoUrl: "/pmfme.webp" },
+  { name: "The Mehsana Urban Co.op. Bank Limited", logoUrl: "/mahesanabank.png" },
+];
+---
+
+<div id="empanelment" class="py-12 bg-white w-full">
+  <div class="w-full px-6 sm:px-10 lg:px-16 xl:px-24">
+    <div class="text-center mb-10">
+      <h2 class="font-semibold sm:text-md md:text-lg lg:text-2xl xl:text-3xl text-gray-600 tracking-wider uppercase">
+        Our Empanelment
+      </h2>
+    </div>
+
+    <!-- 🖼️ Logo Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-6 md:gap-8 items-center justify-items-center w-full">
+      {logos.map((logo) => (
+        <div class="flex justify-center items-center">
+          <img
+            src={logo.logoUrl}
+            alt={logo.name}
+            class="h-20 sm:h-24 md:h-28 w-auto object-contain opacity-80 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 ease-in-out"
+          />
+        </div>
+      ))}
     </div>
   </div>
 </div>

@@ -1,28 +1,39 @@
+
+
+
 ---
 import Layout from "../layout/Layout.astro";
 ---
 
 <Layout title="Vendor Registration">
-    <main class="w-full">
-        <div class="hero-section relative w-full mb-10">
-            <img
-                src="/Vendor form header.jpg"
-                alt="Vendor registration banner"
-                class="w-full h-70 object-cover" />
-        </div>
+  <main class="w-full">
+    <!-- 🟩 Hero Section -->
+    <section class="relative w-full mb-8">
+      <img
+        src="/Vendor form header.jpg"
+        alt="Vendor registration banner"
+        class="w-full h-70 object-cover brightness-60"
+      />
+      <div class="absolute inset-0 flex items-center justify-center text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">
+          Vendor Registration
+        </h1>
+      </div>
+    </section>
 
-        <div class="container mx-auto px-3  md:px-12 py-12 flex flex-col items-center">
-            <div class="text-center w-full max-w-4xl">
-                <h2 class="text-5xl md:text-6xl font-extrabold mb-8 text-gray-900">
-                    Vendor Registration
-                </h2>
-                <div class="w-24 h-1 mt-4 mx-auto bg-yellow-500 rounded-full mb-10"></div>
-                <p class="mb-12 text-gray-700 text-lg leading-relaxed">
-                    Welcome to the Abhyuday Bharat Projects Pvt. Ltd. Vendor Registration. We are looking for reliable and experienced partners to join us in our mission. Please fill out this form to register your company and become a valued contractor or supplier for our Agro & Food projects.
-                </p>
-            </div>
+    <!-- 📝 Description (below banner, like Projects page intro) -->
+    <section class="container mx-auto px-3 md:px-12 mb-12 text-center">
+      <p class="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto">
+        Welcome to the Abhyuday Bharat Projects Pvt. Ltd. Vendor Registration.  
+        We are looking for reliable and experienced partners to join us in our mission.  
+        Please fill out this form to register your company and become a valued contractor or supplier for our Agro & Food projects.
+      </p>
+      <div class="w-24 h-1 mt-6 mx-auto bg-green-700 rounded-full"></div>
+    </section>
 
-            <form
+    <!-- 🧾 Vendor Registration Form -->
+    <section class="container mx-auto px-3 md:px-12 pb-20 flex flex-col items-center">
+      <form
                 method="post"
                 class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-50 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-200 transition-all duration-300 hover:shadow-2xl hover:bg-white"
             >
@@ -193,34 +204,31 @@ import Layout from "../layout/Layout.astro";
                     </button>
                 </div>
             </form>
-        </div>
-    </main>
+    </section>
+  </main>
 </Layout>
 
+<!-- Script -->
 <script>
-    import 'intl-tel-input/build/css/intlTelInput.css';
-    import intlTelInput from 'intl-tel-input';
-    
-    // Initialize the phone number input
-    const input = document.querySelector("#contactNo") as HTMLInputElement | null;
-    if (input) {
-        intlTelInput(input, {
-            initialCountry: "in",
-            separateDialCode: true
-        });
-    }
+  import 'intl-tel-input/build/css/intlTelInput.css';
+  import intlTelInput from 'intl-tel-input';
 
-    // Populate the year dropdown
-    const yearSelect = document.getElementById("yearOfEstablishment") as HTMLSelectElement | null;
-    if (yearSelect) {
-        const currentYear = new Date().getFullYear();
-        const startYear = 1900;
+  const input = document.querySelector("#contactNo");
+  if (input) {
+    intlTelInput(input, {
+      initialCountry: "in",
+      separateDialCode: true,
+    });
+  }
 
-        for (let year = currentYear; year >= startYear; year--) {
-            const option = document.createElement("option");
-            option.value = year.toString();
-            option.textContent = year.toString();
-            yearSelect.appendChild(option);
-        }
-    }
+  const yearSelect = document.getElementById("yearOfEstablishment");
+  if (yearSelect) {
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear; year >= 1900; year--) {
+      const option = document.createElement("option");
+      option.value = year.toString();
+      option.textContent = year.toString();
+      yearSelect.appendChild(option);
+    }
+  }
 </script>

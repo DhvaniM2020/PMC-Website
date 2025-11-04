@@ -101,8 +101,11 @@
         const content = button.nextElementSibling;
         const icon = button.querySelector('.accordion-icon');
 
-        content.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180');
+        // Add null checks to prevent errors
+        if (content && icon) {
+          content.classList.toggle('hidden');
+          icon.classList.toggle('rotate-180');
+        }
       });
     });
   });

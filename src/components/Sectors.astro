@@ -35,7 +35,7 @@ const sectors = [
 ];
 ---
 
-<section id="sectors" class="py-10 bg-white sm:py-20 font-[Poppins,sans-serif] scroll-mt-20">
+<section id="sectors" class="py-10 bg-white sm:py-20 font-[Poppins,sans-serif] scroll-mt-30">
   <div class="px-8 mx-auto sm:px-10 lg:px-16 max-w-7xl">
     
     <div class="text-center">
@@ -48,22 +48,51 @@ const sectors = [
       </p>
     </div>
 
-    <div class="w-full mx-auto mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      {sectors.map(sector => (
-  <div class="rounded-xl shadow-lg p-8 text-center border-t-4 border-[#eea522] bg-gray-50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
-    <img 
-      src={sector.icon} 
-      alt={sector.title} 
-      class="w-16 h-16 mx-auto mb-5 object-contain" 
-      loading="lazy"
-    />
-    <h3 class="text-xl font-bold text-gray-900">{sector.title}</h3>
-    <p class="mt-2 text-gray-600 text-center flex-grow" set:html={sector.description} />
-  </div>
-))}
-
-      
+    <div class="w-full mx-auto mt-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        
+        {sectors.map((sector, index) => (
+          <div class="relative">
+            <!-- Content -->
+            <div class="p-6 text-center flex flex-col items-center">
+              <img 
+                src={sector.icon} 
+                alt={sector.title} 
+                class="w-16 h-16 mx-auto mb-5 object-contain" 
+                loading="lazy"
+              />
+              <h3 class="text-xl font-bold text-gray-900">{sector.title}</h3>
+              <p class="mt-2 text-gray-600 text-center" set:html={sector.description} />
+            </div>
+            
+            <!-- Mobile dividers (5 horizontal lines between 6 items) -->
+            {index < sectors.length - 1 && (
+              <div class="block sm:hidden border-t border-orange-200 mx-6"></div>
+            )}
+            
+            <!-- Tablet dividers -->
+            <!-- Vertical lines for tablet (after first and third items) -->
+            {(index === 0 || index === 2 || index === 4) && (
+              <div class="hidden sm:block lg:hidden absolute top-0 bottom-0 right-0 w-px bg-orange-200"></div>
+            )}
+            <!-- Horizontal lines for tablet (after first 4 items) -->
+            {index < 4 && (
+              <div class="hidden sm:block lg:hidden border-t border-orange-200 mx-6"></div>
+            )}
+            
+            <!-- Desktop dividers -->
+            <!-- Vertical lines for desktop (after first and second column items) -->
+            {(index === 0 || index === 1 || index === 3 || index === 4) && (
+              <div class="hidden lg:block absolute top-0 bottom-0 right-0 w-px bg-orange-200"></div>
+            )}
+            <!-- Horizontal lines for desktop (after first row - index 0,1,2) -->
+            {index < 3 && (
+              <div class="hidden lg:block absolute bottom-0 left-6 right-6 h-px bg-orange-200"></div>
+            )}
+          </div>
+        ))}
+        
+      </div>
     </div>
   </div>
 </section>

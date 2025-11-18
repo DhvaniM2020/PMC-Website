@@ -1,0 +1,31 @@
+---
+const stats = [
+  { value: "₹5,000+ Cr", label: "Completed Projects" },
+  { value: "₹1,000 Cr", label: "Ongoing Projects" },
+  { value: "21+ States", label: "Pan-India Presence" },
+  { value: "Global Reach", label: "Offices in India, Japan, USA" },
+];
+---
+
+<section class="bg-green-800 py-20 text-white">
+  <div class="max-w-7xl mx-auto px-8 sm:px-10 lg:px-16">
+
+    <!-- Divider-based Stats -->
+    <div class="w-full flex flex-col sm:flex-row justify-between items-center 
+                divide-y sm:divide-y-0 sm:divide-x divide-orange-300/70">
+
+      {stats.map((stat) => (
+        <div class="w-full py-8 text-center px-6">
+          <h3 class="text-2xl sm:text-3xl font-bold tracking-tight">
+            {stat.value}
+          </h3>
+          <p class="text-md mt-2 text-white/80 font-medium">
+            {stat.label}
+          </p>
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>

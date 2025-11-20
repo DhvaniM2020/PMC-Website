@@ -54,9 +54,70 @@ const { images = defaultImages } = Astro.props;
         Turnkey Project Management & EPC Consultancy for Multi-sector Industrial Development.
       </p>
 
-      <a href="/projects" class="mt-6 sm:mt-8 inline-block bg-gray-200 border-gray-200 hover:bg-gray-300 text-green-800 px-5 sm:px-6 py-2 sm:py-3 rounded-md font-medium transition-transform transform">
-        Discover Our Projects
-      </a>
+      <div class="mt-10 flex justify-center">
+        {/* Centered Button */}
+        <button
+          id="projects-button"
+          class="
+            flex justify-center gap-2 items-center 
+            shadow-lg 
+            bg-white text-gray-800 font-semibold 
+            relative overflow-hidden 
+            px-6 py-3 border-2 border-gray-300 
+            rounded-full 
+            transition-all duration-500 
+            hover:text-white
+            group
+            text-base
+            cursor-pointer
+          "
+        >
+          <span class="relative z-10 transition-colors duration-300">
+            Explore Our Projects
+          </span>
+          <div
+            class="
+              relative z-10
+              w-8 h-8 
+              flex items-center justify-center
+              rounded-full border-2 border-gray-800
+              group-hover:border-white
+              group-hover:bg-white
+              group-hover:rotate-90
+              transition-all duration-300
+              rotate-45
+            "
+          >
+            <svg
+              class="w-4 h-4"
+              viewBox="0 0 16 19"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                class="
+                  fill-gray-800 
+                  group-hover:fill-green-800 
+                  transition-colors duration-300
+                "
+              />
+            </svg>
+          </div>
+          
+          {/* Hover background */}
+          <div
+            class="
+              absolute inset-0 
+              bg-green-800 
+              transform scale-x-0 
+              group-hover:scale-x-100 
+              transition-transform duration-500 
+              origin-left
+              rounded-full
+            "
+          />
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -73,6 +134,11 @@ const { images = defaultImages } = Astro.props;
       slides[currentIndex].classList.add("opacity-100");
     }, 5000);
   }
+
+  // Redirect to projects page when button is clicked
+  document.getElementById('projects-button')?.addEventListener('click', () => {
+    window.location.href = '/projects';
+  });
 </script>
 
 <style is:global>

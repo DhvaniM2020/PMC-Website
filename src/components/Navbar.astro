@@ -1,10 +1,8 @@
----
-// Navbar.astro
----
-
+--- /* Navbar.astro */ ---
+<!-- MOBILE + TABLET NAVBAR (fixed floating menu, does NOT push content) -->
 <header
-  id="navbar"
-  class="sticky top-0 z-50 bg-white transition-all duration-300 shadow navbar-fixed"
+  id="navbar-mobile"
+  class="lg:hidden sticky top-0 z-50 bg-white shadow transition-all duration-300"
 >
   <div class="max-w-8xl mx-auto px-6 py-3 flex items-center justify-between">
     <!-- Logo -->
@@ -12,138 +10,152 @@
       <img
         src="/Abhyuday-New-Logo.jpg"
         alt="Abhyuday Logo"
-        class="rounded-full h-15 w-auto transition-transform duration-300 ease-in-out hover:scale-110"
+        class="rounded-full h-10 w-auto transition-transform duration-300 hover:scale-110"
+      />
+      <span class="title font-semibold text-green-800" style="font-family:'Poppins';">
+  ABHYUDAY BHARAT PROJECTS
+</span>
+
+    </a>
+
+    <!-- Hamburger -->
+    <button id="mobile-menu-btn" class="text-gray-900 focus:outline-none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-7 w-7"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden absolute top-full left-0 w-full bg-white shadow-lg py-2 text-base z-50"
+  >
+    <a href="/#" class="mobile-link block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a>
+    <a href="/#about" class="mobile-link block px-4 py-2 text-gray-700 hover:bg-gray-100"
+      >About Us</a
+    >
+    <a href="/#CoreServices" class="mobile-link block px-4 py-2 text-gray-700 hover:bg-gray-100"
+      >Services</a
+    >
+    <a href="/#sectors" class="mobile-link block px-4 py-2 text-gray-700 hover:bg-gray-100"
+      >Sectors</a
+    >
+    <a href="/projects" class="mobile-link block px-4 py-2 text-gray-700 hover:bg-gray-100"
+      >Projects</a
+    >
+    <a href="/#join-us" class="mobile-link block px-4 py-2 text-gray-700 hover:bg-gray-100"
+      >Join Us</a
+    >
+    <a href="/vendor" class="mobile-link block px-4 py-2 text-gray-700 hover:bg-gray-100"
+      >Vendor Registration</a
+    >
+    <a href="/#contact" class="mobile-link block px-4 py-2 text-gray-700 hover:bg-gray-100">
+  Contact Us
+</a>
+
+  </div>
+</header>
+
+<!-- DESKTOP FLOATING NAVBAR -->
+<header
+  id="navbar-desktop"
+  class="hidden lg:flex fixed top-4 left-1/2 -translate-x-1/2 z-50
+         bg-white shadow-lg rounded-full
+         px-6 xl:px-10 py-3 xl:py-4
+         w-[92%] xl:w-[85%]
+         transition-all duration-300"
+>
+  <div class="flex items-center justify-between w-full">
+    <!-- Logo -->
+    <a href="/" class="flex items-center space-x-2 xl:space-x-3">
+      <img
+        src="/Abhyuday-New-Logo.jpg"
+        alt="Abhyuday Logo"
+        class="rounded-full h-10 xl:h-12 w-auto transition-transform duration-300 hover:scale-110"
       />
       <span
-        class="text-2xl tracking-normal"
-        style="font-family: 'Poppins'; font-size: clamp(1.5rem, 1.5vw, 1.5rem); line-height: 1.0;"
+        class="text-base lg:text-lg xl:text-xl font-semibold text-green-800 tracking-tight"
+        style="font-family:'Poppins'; line-height:1;"
       >
-        <span
-          class="font-semibold sm:text-sm md:text-md lg:text-md xl:text-lg 2xl:text-xl text-green-800"
-          >ABHYUDAY BHARAT PROJECTS</span
-        ><br />
+        ABHYUDAY BHARAT PROJECTS
       </span>
     </a>
 
-    <!-- Desktop Nav -->
+    <!-- Center Links -->
     <nav
-      class="hidden lg:flex space-x-3 items-center font-medium text-gray-700 navbar-links text-sm lg:text-xs xl:text-sm 2xl:text-lg"
+      class="flex items-center
+             space-x-3 lg:space-x-4 xl:space-x-6
+              text-gray-700
+             text-sm xl:text-base"
     >
-      <a href="/#" class="nav-link relative hover:text-green-800 px-2 py-1"
-        >Home</a
-      >
-      <a href="/#about" class="nav-link relative hover:text-green-800 px-2 py-1"
-        >About Us</a
-      >
-      <a
-        href="/#CoreServices"
-        class="nav-link relative hover:text-green-800 px-2 py-1">Services</a
-      >
-      <a
-        href="/#sectors"
-        class="nav-link relative hover:text-green-800 px-2 py-1">Sectors</a
-      >
-      <a
-        href="/projects"
-        class="nav-link relative hover:text-green-800 px-2 py-1">Projects</a
-      >
-      <a
-        href="/#join-us"
-        class="nav-link relative hover:text-green-800 px-2 py-1">Join Us</a
-      >
-      <a href="/vendor" class="nav-link relative hover:text-green-800 px-2 py-1"
-        >Vendor Registration</a
-      >
-      <a
-        href="#contact"
-        class="inline-block bg-green-800 text-white
-                        py-2 px-5 rounded-3xl
-                        transition-all duration-300
-                        hover:bg-white hover:text-green-800
-                        hover:shadow-[0_10px_25px_rgba(99,102,241,0.3)]
-                        hover:scale-[1.02]
-                        border border-green-800"
-      >
-        CONTACT
-      </a>
+      <a href="/#" class="nav-link hover:text-green-800 relative">Home</a>
+      <a href="/#about" class="nav-link hover:text-green-800 relative">About Us</a>
+      <a href="/#CoreServices" class="nav-link hover:text-green-800 relative">Services</a>
+      <a href="/#sectors" class="nav-link hover:text-green-800 relative">Sectors</a>
+      <a href="/projects" class="nav-link hover:text-green-800 relative">Projects</a>
+      <a href="/#join-us" class="nav-link hover:text-green-800 relative">Join Us</a>
+      <a href="/vendor" class="nav-link hover:text-green-800 relative">Vendor Registration</a>
     </nav>
 
-    <!-- Mobile Menu Button -->
-    <div class="lg:hidden flex items-center">
-      <button id="mobile-menu-btn" class="text-gray-900 focus:outline-none">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile Menu Content -->
-  <div
-    id="mobile-menu"
-    class="lg:hidden hidden bg-white shadow-lg py-2 text-base"
-  >
-    <a href="/#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</a
-    >
-    <a href="/#about" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-      >About Us</a
-    >
-    <a
-      href="/#CoreServices"
-      class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Services</a
-    >
-    <a href="/#sectors" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-      >Sectors</a
-    >
-    <a href="/projects" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-      >Projects</a
-    >
-    <a href="/#join-us" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-      >Join Us</a
-    >
-    <a href="/vendor" class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-      >Vendor Registration</a
-    >
+    <!-- Contact Button -->
     <a
       href="/#contact"
-      class="block px-4 py-2 text-white bg-green-800 hover:bg-green-700"
-      >Contact Us</a
+      class="bg-green-800 text-white
+             text-sm xl:text-base
+             py-2 px-4 xl:px-6
+             rounded-full border border-green-800
+             transition-all duration-300
+             hover:bg-white hover:text-green-800 hover:shadow-lg"
     >
+      CONTACT US
+    </a>
   </div>
 </header>
 
 <script>
-  // Scroll effect for navbar
-  window.addEventListener("scroll", () => {
-    const navbar = document.getElementById("navbar");
-    if (!navbar) return;
-    if (window.scrollY > 50) {
-      navbar.classList.add("bg-white/70", "backdrop-blur-md");
-      navbar.classList.remove("bg-white");
-    } else {
-      navbar.classList.remove("bg-white/70", "backdrop-blur-md");
-      navbar.classList.add("bg-white");
-    }
-  });
+  const mobileNav = document.getElementById("navbar-mobile");
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
 
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+  // Toggle dropdown without pushing content (with null checks)
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
     });
   }
+
+  // Auto close menu when link clicked
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (menu) {
+        menu.classList.add("hidden");
+      }
+    });
+  });
+
+  // Mobile scroll style
+  window.addEventListener("scroll", () => {
+    if (window.innerWidth < 1024 && mobileNav) {
+      if (window.scrollY > 50) {
+        mobileNav.classList.add("bg-white/70", "backdrop-blur-md");
+      } else {
+        mobileNav.classList.remove("bg-white/70", "backdrop-blur-md");
+      }
+    }
+  });
 </script>
 
 <style>
@@ -152,13 +164,80 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    bottom: 0;
+    bottom: -3px;
     left: 0;
     background-color: #eea522;
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
   }
+
   .nav-link:hover::after {
     transform: scaleX(1);
   }
+
+
+
+/* COMPACT MODE FOR 1024px (lg breakpoint) */
+@media (max-width: 1280px) and (min-width: 1024px) {
+
+  #navbar-desktop {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  #navbar-desktop img {
+    height: 42px !important;  /* smaller logo */
+  }
+
+  #navbar-desktop .title {
+    font-size: 0.9rem !important;   /* smaller title text */
+    max-width: 160px;               /* restrict width */
+    line-height: 1.1;
+  }
+
+  #navbar-desktop nav a {
+    font-size: 0.78rem !important;  /* smaller link text */
+    margin-left: 6px !important;
+    margin-right: 6px !important;
+  }
+
+  #navbar-desktop .contact-btn {
+    padding: 6px 14px !important;  /* smaller button */
+    font-size: 0.8rem !important;
+    white-space: nowrap;
+  }
+}
+
+
+
+/* EXPANDED MODE FOR LARGE DESKTOPS (xl and above) */
+@media (min-width: 1450px) {
+
+  #navbar-desktop {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+
+  #navbar-desktop .title {
+    font-size: 1.25rem !important;
+  }
+
+  #navbar-desktop nav a {
+    font-size: 1.2rem !important;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+
+  #navbar-desktop img {
+    height: 52px !important;
+  }
+
+  #navbar-desktop .contact-btn,
+  #navbar-desktop a[href="#contact"] {
+    padding: 10px 26px !important;
+    font-size: 1rem !important;
+  }
+}
+
+
 </style>

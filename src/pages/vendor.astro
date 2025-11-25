@@ -11,8 +11,12 @@ import Layout from "../layout/Layout.astro";
         alt="Vendor registration banner"
         class="w-full h-70 object-cover brightness-60"
       />
-      <div class="absolute inset-0 flex items-center justify-center text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg">
+      <div
+        class="absolute inset-0 flex items-center justify-center text-center"
+      >
+        <h1
+          class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg"
+        >
           Vendor Registration
         </h1>
       </div>
@@ -21,15 +25,18 @@ import Layout from "../layout/Layout.astro";
     <!-- 📝 Description (below banner, like Projects page intro) -->
     <section class="container mx-auto px-3 md:px-12 mb-12 text-center">
       <p class="text-gray-700 text-lg leading-relaxed max-w-4xl mx-auto">
-        Welcome to the Abhyuday Bharat Projects Pvt. Ltd. Vendor Registration.  
-        We are looking for reliable and experienced partners to join us in our mission.  
-        Please fill out this form to register your company and become a valued contractor or supplier for our Agro & Food projects.
+        Welcome to the Abhyuday Bharat Projects Pvt. Ltd. Vendor Registration.
+        We are looking for reliable and experienced partners to join us in our
+        mission. Please fill out this form to register your company and become a
+        valued contractor or supplier for our Agro & Food projects.
       </p>
       <div class="w-24 h-1 mt-6 mx-auto bg-green-700 rounded-full"></div>
     </section>
 
     <!-- 🧾 Vendor Registration Form -->
-    <section class="container mx-auto px-3 md:px-12 pb-20 flex flex-col items-center">
+    <section
+      class="container mx-auto px-3 md:px-12 pb-20 flex flex-col items-center"
+    >
       <form
         method="post"
         class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-50 p-8 md:p-12 rounded-2xl shadow-xl border border-gray-200 transition-all duration-300 hover:shadow-2xl hover:bg-white"
@@ -83,14 +90,24 @@ import Layout from "../layout/Layout.astro";
         </div>
 
         <div class="form-field">
-          <label class="block text-sm font-semibold mb-2 text-gray-800">Contact No <span class="text-red-500">*</span></label>
+          <label class="block text-sm font-semibold mb-2 text-gray-800"
+            >Contact No <span class="text-red-500">*</span></label
+          >
           <div id="phone-container" class="flex">
-            <input type="tel" id="contactNo" name="contactNo" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-300" required />
+            <input
+              type="tel"
+              id="contactNo"
+              name="contactNo"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-300 focus:border-transparent transition-all duration-300"
+              required
+            />
           </div>
         </div>
 
         <div class="form-field">
-          <label class="block text-sm font-semibold mb-2 text-gray-800">Email <span class="text-red-500">*</span></label>
+          <label class="block text-sm font-semibold mb-2 text-gray-800"
+            >Email <span class="text-red-500">*</span></label
+          >
           <input
             type="email"
             placeholder="Email Address"
@@ -99,7 +116,9 @@ import Layout from "../layout/Layout.astro";
         </div>
 
         <div class="form-field">
-          <label class="block text-sm font-semibold mb-2 text-gray-800">Website</label>
+          <label class="block text-sm font-semibold mb-2 text-gray-800"
+            >Website</label
+          >
           <input
             type="url"
             placeholder="https://yourdomain.com"
@@ -136,7 +155,8 @@ import Layout from "../layout/Layout.astro";
 
         <div class="form-field">
           <label class="block text-sm font-semibold mb-2 text-gray-800"
-            >Last Year Turnover (Amount in ₹)<span class="text-red-500">*</span></label
+            >Last Year Turnover (Amount in ₹)<span class="text-red-500">*</span
+            ></label
           >
           <input
             type="text"
@@ -160,11 +180,13 @@ import Layout from "../layout/Layout.astro";
             <option>Above 10 Crore</option>
           </select>
         </div>
-        
+
         <div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-semibold mb-2 text-gray-800"
-              >Company's Project/Work Portfolio <span class="text-red-500">*</span></label
+              >Company's Project/Work Portfolio <span class="text-red-500"
+                >*</span
+              ></label
             >
             <input
               type="file"
@@ -173,7 +195,8 @@ import Layout from "../layout/Layout.astro";
               required
             />
             <p class="text-xs text-gray-500 mt-2">
-              (Only .jpg, .jpeg, .png, .pdf files are allowed. Use Ctrl/Cmd key to select multiple files. File size should be less than 10MB)
+              (Only .jpg, .jpeg, .png, .pdf files are allowed. Use Ctrl/Cmd key
+              to select multiple files. File size should be less than 10MB)
             </p>
           </div>
 
@@ -187,17 +210,32 @@ import Layout from "../layout/Layout.astro";
               class="w-full p-3 border border-gray-300 rounded-lg bg-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200 transition-all duration-300"
             />
             <p class="text-xs text-gray-500 mt-2">
-              (Pdf files are allowed. Use Ctrl/Cmd key to select multiple files. File size should be less than 10MB)
+              (Pdf files are allowed. Use Ctrl/Cmd key to select multiple files.
+              File size should be less than 10MB)
             </p>
           </div>
         </div>
 
-        <div class="md:col-span-2 text-center mt-6">
-          <button
-            type="submit"
-            class="bg-green-800 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition duration-200 shadow-md hover:shadow-lg text-lg"
-          >
-            Submit
+        <div class="md:col-span-2 flex justify-center mt-6">
+  <button>
+
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    fill="currentColor"
+                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <span>Send</span>
           </button>
         </div>
       </form>
@@ -205,13 +243,70 @@ import Layout from "../layout/Layout.astro";
   </main>
 </Layout>
 
+<style>
+  /* From Uiverse.io by adamgiebl */
+  button {
+    font-family: inherit;
+    font-size: 20px;
+    background: #276749;
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+
+  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+
+  button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+
+  button:hover span {
+    transform: translateX(5em);
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+
+  @keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+</style>
+
 <!-- Script -->
 <script>
-  import 'intl-tel-input/build/css/intlTelInput.css';
-  import intlTelInput from 'intl-tel-input';
+  import "intl-tel-input/build/css/intlTelInput.css";
+  import intlTelInput from "intl-tel-input";
 
   // Wait for DOM to be fully loaded
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("DOMContentLoaded", function () {
     // Type assertion for phone input
     const input = document.querySelector("#contactNo") as HTMLInputElement;
     if (input) {
@@ -222,7 +317,9 @@ import Layout from "../layout/Layout.astro";
     }
 
     // Year dropdown population
-    const yearSelect = document.getElementById("yearOfEstablishment") as HTMLSelectElement;
+    const yearSelect = document.getElementById(
+      "yearOfEstablishment"
+    ) as HTMLSelectElement;
     if (yearSelect) {
       const currentYear = new Date().getFullYear();
       for (let year = currentYear; year >= 1900; year--) {

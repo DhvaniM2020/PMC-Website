@@ -16,7 +16,10 @@ const defaultImages = [
 const { images = defaultImages } = Astro.props;
 ---
 
-<section class="relative flex overflow-hidden h-[90vh] sm:h-[92vh] font-[Poppins,sans-serif]">
+<section class="relative flex overflow-hidden 
+  h-[90vh] sm:h-[92vh] lg:h-[100vh] 
+  font-[Poppins,sans-serif]">
+
   <!-- Background Images -->
   <div class="absolute inset-0 z-[-1]">
     {images.map((src, index) => (

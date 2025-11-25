@@ -2,43 +2,8 @@
 // This is the frontmatter section. You can add data or scripts here if needed.
 // For this simple form, it's not strictly necessary.
 ---
-<style>
-  /* From Uiverse.io by ZacharyCrespin */ 
-button {
-  cursor: pointer;
-  font-weight: 700;
-  font-family: Helvetica,"sans-serif";
-  transition: all .2s;
-  padding: 10px 20px;
-  border-radius: 100px;
-  background: white;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  font-size: 15px;
-}
 
-button:hover {
-  background: white;
-}
-
-button > svg {
-  width: 34px;
-  margin-left: 10px;
-  transition: transform .3s ease-in-out;
-}
-
-button:hover svg {
-  transform: translateX(5px);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-
-</style>
-<section id="contact" class="bg-[#F2F5F4] py-30 ">
+<section id="contact" class="bg-[#F2F5F4] py-10 scroll-m-10 ">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-12 mt-12">
       <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl" style="font-family: 'Poppins'">
@@ -119,13 +84,31 @@ button:active {
             ></textarea>
           </div>
           <div class="text-center">           
-<button>
-    <span>SUBMIT</span>
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34">
-        <circle stroke-width="3" stroke="black" r="35.5" cy="37" cx="37"></circle>
-        <path fill="black" d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"></path>
-    </svg>
-</button>
+<button class="cursor-pointer relative bg-black/40 font-semibold py-2 rounded-full min-w-[8.5rem] min-h-[2.92rem] group max-w-full flex items-center justify-start hover:bg-green-800 transition-all duration-[0.8s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] shadow-[inset_1px_2px_5px_#00000080]">
+                    <div class="absolute flex px-1 py-0.5 justify-start items-center inset-0">
+                      <div class="w-[0%] group-hover:w-full transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)]"></div>
+                      <div class="rounded-full shrink-0 flex justify-center items-center shadow-[inset_1px_-1px_3px_0_black] h-full aspect-square bg-green-800 transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] group-hover:bg-white">
+                        <div class="size-[1rem] text-black group-hover:text-White group-hover:-rotate-45 transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)]">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 16 16"
+                            height="100%"
+                            width="100%"
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M12.175 9H0V7H12.175L6.575 1.4L8 0L16 8L8 16L6.575 14.6L12.175 9Z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pl-[3.4rem] pr-[1.1rem] group-hover:pl-[1.1rem] group-hover:pr-[3.4rem] transition-all duration-[1s] ease-[cubic-bezier(0.510,0.026,0.368,1.016)] group-hover:text-white text-white">
+                      SUBMIT
+                    </div>
+                  </button>
+
           </div>
         </form>
         <div id="form-message" class="text-sm mt-4 text-center"></div>

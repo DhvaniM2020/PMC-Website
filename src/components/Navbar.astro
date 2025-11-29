@@ -240,4 +240,45 @@
 }
 
 
+
+/* FIX FOR 1366 × 768 LAPTOP SCREENS */
+@media (min-width: 1280px) and (max-width: 1400px) {
+
+  /* Desktop navbar wrapper adjustments */
+  #navbar-desktop {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  /* Logo */
+  #navbar-desktop img {
+    height: 40px !important; /* smaller logo */
+  }
+
+  /* Title text */
+  #navbar-desktop span {
+    font-size: 0.95rem !important;
+    max-width: 180px !important; /* prevent wrapping */
+    white-space: nowrap;
+  }
+
+  /* Navigation links */
+  #navbar-desktop nav a {
+    font-size: 0.9rem !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    white-space: nowrap !important; /* force single line */
+  }
+
+  /* Contact button */
+  #navbar-desktop a[href="/#contact"] {
+    padding: 6px 14px !important;
+    font-size: 0.9rem !important;
+    white-space: nowrap !important;
+  }
+}
+
+
 </style>

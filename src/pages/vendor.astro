@@ -12,7 +12,7 @@ import Layout from "../layout/Layout.astro";
         class="w-full h-70 object-cover brightness-60"
       />
       <div
-        class="absolute inset-0 flex items-center justify-center text-center"
+        class="absolute inset-0 flex items-center justify-center text-center mt-10"
       >
         <h1
           class="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg"
@@ -217,26 +217,21 @@ import Layout from "../layout/Layout.astro";
         </div>
 
         <div class="md:col-span-2 flex justify-center mt-6">
-  <button>
+    <button class="animated-button">
 
-            <div class="svg-wrapper-1">
-              <div class="svg-wrapper">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path
-                    fill="currentColor"
-                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <span>Send</span>
-          </button>
+  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+    ></path>
+  </svg>
+  <span class="text">SEND</span>
+  <span class="circle"></span>
+  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+    ></path>
+  </svg>
+</button>
         </div>
       </form>
     </section>
@@ -244,50 +239,95 @@ import Layout from "../layout/Layout.astro";
 </Layout>
 
 <style>
-  /* From Uiverse.io */
-  button {
-    font-family: inherit;
-    font-size: 20px;
-    background: #276749;
-    color: white;
-    padding: 0.7em 1em;
-    padding-left: 0.9em;
-    display: flex;
-    align-items: center;
-    border: none;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
+    /* From Uiverse.io by gharsh11032000 */ 
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: green;
+  box-shadow: 0 0 0 2px green;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-  button span {
-    display: block;
-    margin-left: 0.3em;
-    transition: all 0.3s ease-in-out;
-  }
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: green;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-  button svg {
-    display: block;
-    transform-origin: center center;
-    transition: transform 0.3s ease-in-out;
-  }
+.animated-button .arr-1 {
+  right: 16px;
+}
 
-  button:hover .svg-wrapper {
-    animation: fly-1 0.6s ease-in-out infinite alternate;
-  }
+.animated-button .arr-2 {
+  left: -25%;
+}
 
-  button:hover svg {
-    transform: translateX(1.2em) rotate(45deg) scale(1.1);
-  }
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-  button:hover span {
-    transform: translateX(5em);
-  }
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-  button:active {
-    transform: scale(0.95);
-  }
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #ffffff;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #ffffff;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px green;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
 
   @keyframes fly-1 {
     from {

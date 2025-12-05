@@ -71,8 +71,7 @@ const projects = [
           
           <div 
             id="slider-pill" 
-            class="absolute top-1 bottom-1 bg-green-700 rounded-full shadow-md transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-            style="left: 4px; opacity: 0;"
+            class="slider-pill absolute top-1 bottom-1 bg-green-700 rounded-full shadow-md"
           ></div>
 
           <button 
@@ -96,7 +95,7 @@ const projects = [
         </div>
       </div>
 
-      <div class="space-y-16" id="projects-container">
+      <div class="space-y-16 transition-opacity duration-300 ease-in-out opacity-100" id="projects-container">
         {projects.map((project) => (
           <div 
             class="project-card group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden"
@@ -144,7 +143,6 @@ const projects = [
                     {project.title}
                   </h3>
                 </div>
-
                 <div class="prose prose-lg text-gray-600 leading-relaxed">
                   <p class="text-gray-700">{project.desc}</p>
                 </div>
@@ -162,7 +160,6 @@ const projects = [
         <div id="no-projects" class="hidden text-center py-10">
             <p class="text-xl text-gray-500">No projects found in this category.</p>
         </div>
-
       </div>
     </section>
 
@@ -193,15 +190,15 @@ const projects = [
 
 <script>
   document.addEventListener('astro:page-load', () => {
-    // We cast NodeListOf to ensure TypeScript knows these are HTMLElements
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const projectsContainer = document.getElementById('projects-container');
     const noProjectsMsg = document.getElementById('no-projects');
     const sliderPill = document.getElementById('slider-pill');
 
-    if (!sliderPill || filterButtons.length === 0) return;
+    if (!sliderPill || filterButtons.length === 0 || !projectsContainer) return;
 
-    // FIX 1: Explicitly type the parameter as HTMLElement
+    // --- SLIDER LOGIC ---
     function updateSlider(targetBtn: HTMLElement) {
       if (!sliderPill) return;
 
@@ -210,60 +207,74 @@ const projects = [
 
       sliderPill.style.width = `${width}px`;
       sliderPill.style.transform = `translateX(${leftPos}px)`;
-      
+      // Ensure opacity is set to 1 after position calculation
       sliderPill.style.opacity = '1';
-      sliderPill.style.left = '0px'; 
     }
 
-    // FIX 2: Cast the querySelector result to HTMLElement so it matches updateSlider's expectation
+    // Initialize Slider
     const activeBtn = (document.querySelector('.filter-btn.text-white') as HTMLElement) || (filterButtons[0] as HTMLElement);
-    
-    setTimeout(() => {
+    // Use requestAnimationFrame for smoother initial render
+    requestAnimationFrame(() => {
         if(activeBtn) updateSlider(activeBtn);
-    }, 50);
+    });
 
+    // --- FILTER LOGIC ---
     filterButtons.forEach(button => {
       button.addEventListener('click', (e) => {
-        // FIX 3: Cast currentTarget to HTMLElement. 
-        // This tells TS: "Trust me, the thing I clicked is an HTML element, not null."
         const clickedBtn = e.currentTarget as HTMLElement;
+        const filterValue = clickedBtn.getAttribute('data-filter');
 
+        // 1. Move Pill Immediately
         updateSlider(clickedBtn);
 
+        // 2. Update Text Colors
         filterButtons.forEach(btn => {
           btn.classList.remove('text-white');
-          btn.classList.add('text-gray-600');
-          btn.classList.add('hover:text-green-800');
+          btn.classList.add('text-gray-600', 'hover:text-green-800');
         });
-
-        // Now these lines work because clickedBtn is typed as HTMLElement
         clickedBtn.classList.remove('text-gray-600', 'hover:text-green-800');
         clickedBtn.classList.add('text-white');
 
-        const filterValue = clickedBtn.getAttribute('data-filter');
-        let visibleCount = 0;
+        // 3. Cross-Fade Animation for Projects
+        
+        // Step A: Fade OUT the container
+        projectsContainer.classList.add('opacity-0', 'translate-y-4');
+        projectsContainer.classList.remove('opacity-100', 'translate-y-0');
 
-        projectCards.forEach(card => {
-          const status = card.getAttribute('data-status');
-          
-          if (filterValue === 'all' || status === filterValue) {
-            card.classList.remove('hidden');
-            card.classList.add('animate-fade-in'); 
-            visibleCount++;
-          } else {
-            card.classList.add('hidden');
-            card.classList.remove('animate-fade-in');
-          }
-        });
+        // Step B: Wait for fade out (200ms), then swap content
+        setTimeout(() => {
+            let visibleCount = 0;
 
-        if (visibleCount === 0) {
-            noProjectsMsg?.classList.remove('hidden');
-        } else {
-            noProjectsMsg?.classList.add('hidden');
-        }
+            projectCards.forEach(card => {
+              const status = card.getAttribute('data-status');
+              
+              // Clean up animations from individual cards to prevent conflicts
+              card.classList.remove('animate-fade-in'); 
+
+              if (filterValue === 'all' || status === filterValue) {
+                card.classList.remove('hidden');
+                visibleCount++;
+              } else {
+                card.classList.add('hidden');
+              }
+            });
+
+            // Handle "No Results" msg
+            if (visibleCount === 0) {
+                noProjectsMsg?.classList.remove('hidden');
+            } else {
+                noProjectsMsg?.classList.add('hidden');
+            }
+
+            // Step C: Fade IN the container
+            projectsContainer.classList.remove('opacity-0', 'translate-y-4');
+            projectsContainer.classList.add('opacity-100', 'translate-y-0');
+
+        }, 200); // Matches the duration of the CSS transition
       });
     });
     
+    // Resize Handler
     window.addEventListener('resize', () => {
         const currentActive = document.querySelector('.filter-btn.text-white') as HTMLElement;
         if(currentActive) updateSlider(currentActive);
@@ -284,16 +295,23 @@ const projects = [
     margin-bottom: 0;
   }
   
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* CSS-based transition for the pill ensures it works reliably 
+     regardless of JS execution timing */
+  .slider-pill {
+    transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1), 
+                width 0.4s cubic-bezier(0.2, 0, 0.2, 1), 
+                opacity 0.2s ease;
+    left: 0;
+    opacity: 0; /* Hidden initially until JS sets position */
+    will-change: transform, width;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.5s ease-out forwards;
+  /* Fade and Slide for the whole grid container */
+  #projects-container {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
 
-  /* Animated Button Styles */
+  /* Animated Button Styles (CTA) */
   .animated-button {
     position: relative;
     display: flex;

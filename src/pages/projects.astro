@@ -1,10 +1,52 @@
 ---
 import Layout from "../layout/Layout.astro";
+
+const projects = [
+  {
+    title: "Gujarat Agro Infrastructure Mega Food Park",
+    img: "/image4.png",
+    location: "Surat, Gujarat",
+    scope: "End-to-End Project Management",
+    status: "Completed",
+    desc: "Abhyuday played a pivotal role in conceptualizing and executing the Gujarat Agro Infrastructure Mega Food Park in Surat. Our team handled detailed project planning, infrastructure design, and cluster linkage assessments. The park aims to establish an integrated agro-industrial ecosystem that enhances processing capacity, reduces post-harvest losses, and promotes value addition for crops produced in South Gujarat, thus empowering farmers and entrepreneurs through sustainable agro-based development."
+  },
+  {
+    title: "Paithan Mega Food Park",
+    img: "/Paithan Food Park.jpg",
+    location: "Aurangabad, Maharashtra",
+    scope: "End-to-End Project Management",
+    status: "Completed",
+    desc: "Abhyuday served as Project Management Consultant and DPR expert for the Paithan Mega Food Park in Aurangabad, Maharashtra. The assignment included feasibility studies, cluster analysis, engineering design, procurement management, and project supervision. The park promotes regional agro-industrial growth by integrating processing, cold storage, and logistics facilities—enhancing value addition, employment generation, and competitiveness within the local agro-economy under the MoFPI Mega Food Park Scheme."
+  },
+  {
+    title: "GUJCOMASOL Integrated Agro Logistics Park",
+    img: "/gujco.jpg",
+    location: "Multiple Locations, Gujarat",
+    scope: "Turnkey Advisory & Project Management",
+    status: "Ongoing",
+    desc: "Abhyuday provided complete turnkey advisory and end-to-end project management for GUJCOMASOL's Multi-Model Integrated Agro Logistics Park. The project encompassed planning and execution of integrated processing facilities for peanuts, bananas, and mangoes across Gujarat districts like Mehsana, Amreli, Bharuch, Kutch, and Junagadh. Our scope included feasibility, master planning, engineering, procurement, and supervision to enhance Gujarat's agro-logistics and processing infrastructure."
+  },
+  {
+    title: "Zoram Mega Food Park",
+    img: "/zoram.png",
+    location: "Mizoram",
+    scope: "End-to-End Project Management",
+    status: "Completed",
+    desc: "Abhyuday provided end-to-end project management and DPR consultancy for the Zoram Mega Food Park in Mizoram. Our scope covered feasibility study, master planning, infrastructure design, and procurement management. The project strengthens Mizoram's agro-processing ecosystem by creating integrated facilities for collection, processing, and value addition, ensuring improved farmer linkages and market access across the Northeastern region."
+  },
+  {
+    title: "SCOJ FOODS – Frozen Food Manufacturing Facility",
+    img: "/scoj.png",
+    location: "Mehsana, Gujarat",
+    scope: "End-to-End Project Management",
+    status: "Ongoing",
+    desc: "Abhyuday provided comprehensive consultancy and project management services for Scoj Foods' modern frozen food manufacturing facility in Mehsana, Gujarat. The project encompassed master planning, process design, and infrastructure development for a state-of-the-art plant producing frozen fries, RTE snacks, and parathas. Focused on quality, efficiency, and sustainability, the facility integrates advanced food technology and stringent hygiene systems to deliver safe, nutritious, and high-quality frozen food products to households across India."
+  },
+];
 ---
 
 <Layout title="Major Projects - Our Portfolio">
   <main class="bg-white font-[Poppins]">
-    <!-- Hero Section -->
     <section class="relative w-full h-96 overflow-hidden">
       <div class="absolute inset-0 bg-black/70 z-10"></div>
       <img
@@ -15,7 +57,6 @@ import Layout from "../layout/Layout.astro";
       <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-6 mt-10">
         <div class="max-w-4xl mx-auto">
           <h1 class="text-5xl md:text-5xl font-bold mb-6 tracking-tight">Our Projects</h1>
-          <!-- <div class="w-24 h-1 bg-green-700 mx-auto mb-6"></div> -->
           <p class="text-xl md:text-xl font-light max-w-3xl mx-auto leading-relaxed">
             Landmark initiatives shaping India's Agro & Food Processing ecosystem through innovation and excellence.
           </p>
@@ -23,63 +64,45 @@ import Layout from "../layout/Layout.astro";
       </div>
     </section>
 
-    <!-- Projects Showcase -->
     <section class="max-w-7xl mx-auto py-20 px-6">
-      <div class="text-center">
-        <!-- <h2 class="text-4xl font-bold text-gray-900 mb-4">Project Portfolio</h2>
-        <div class="w-20 h-1 bg-emerald-600 mx-auto mb-6"></div>
-        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-          Transforming India's agricultural landscape through state-of-the-art infrastructure and sustainable solutions.
-        </p> -->
+      
+      <div class="relative z-10 text-center mb-16">
+        <div class="relative inline-flex bg-gray-100 p-1 rounded-full border border-gray-200">
+          
+          <div 
+            id="slider-pill" 
+            class="absolute top-1 bottom-1 bg-green-700 rounded-full shadow-md transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            style="left: 4px; opacity: 0;"
+          ></div>
+
+          <button 
+            class="filter-btn relative z-10 px-8 py-2.5 rounded-full font-semibold text-white transition-colors duration-300"
+            data-filter="all"
+          >
+            All Projects
+          </button>
+          <button 
+            class="filter-btn relative z-10 px-8 py-2.5 rounded-full font-semibold text-gray-600 hover:text-green-800 transition-colors duration-300"
+            data-filter="Ongoing"
+          >
+            Ongoing
+          </button>
+          <button 
+            class="filter-btn relative z-10 px-8 py-2.5 rounded-full font-semibold text-gray-600 hover:text-green-800 transition-colors duration-300"
+            data-filter="Completed"
+          >
+            Completed
+          </button>
+        </div>
       </div>
 
-      <div class="space-y-16">
-        {[
-          {
-            title: "Gujarat Agro Infrastructure Mega Food Park",
-            img: "/image4.png",
-            location: "Surat, Gujarat",
-            scope: "End-to-End Project Management",
-            status: "Completed",
-            desc: "Abhyuday played a pivotal role in conceptualizing and executing the Gujarat Agro Infrastructure Mega Food Park in Surat. Our team handled detailed project planning, infrastructure design, and cluster linkage assessments. The park aims to establish an integrated agro-industrial ecosystem that enhances processing capacity, reduces post-harvest losses, and promotes value addition for crops produced in South Gujarat, thus empowering farmers and entrepreneurs through sustainable agro-based development."
-          },
-          {
-            title: "Paithan Mega Food Park",
-            img: "/Paithan Food Park.jpg",
-            location: "Aurangabad, Maharashtra",
-            scope: "End-to-End Project Management",
-            status: "Completed",
-            desc: "Abhyuday served as Project Management Consultant and DPR expert for the Paithan Mega Food Park in Aurangabad, Maharashtra. The assignment included feasibility studies, cluster analysis, engineering design, procurement management, and project supervision. The park promotes regional agro-industrial growth by integrating processing, cold storage, and logistics facilities—enhancing value addition, employment generation, and competitiveness within the local agro-economy under the MoFPI Mega Food Park Scheme."
-          },
-          {
-            title: "GUJCOMASOL Integrated Agro Logistics Park",
-            img: "/gujco.jpg",
-            location: "Multiple Locations, Gujarat",
-            scope: "Turnkey Advisory & Project Management",
-            status: "Ongoing",
-            desc: "Abhyuday provided complete turnkey advisory and end-to-end project management for GUJCOMASOL's Multi-Model Integrated Agro Logistics Park. The project encompassed planning and execution of integrated processing facilities for peanuts, bananas, and mangoes across Gujarat districts like Mehsana, Amreli, Bharuch, Kutch, and Junagadh. Our scope included feasibility, master planning, engineering, procurement, and supervision to enhance Gujarat's agro-logistics and processing infrastructure."
-          },
-          {
-            title: "Zoram Mega Food Park",
-            img: "/zoram.png",
-            location: "Mizoram",
-            scope: "End-to-End Project Management",
-            status: "Completed",
-            desc: "Abhyuday provided end-to-end project management and DPR consultancy for the Zoram Mega Food Park in Mizoram. Our scope covered feasibility study, master planning, infrastructure design, and procurement management. The project strengthens Mizoram's agro-processing ecosystem by creating integrated facilities for collection, processing, and value addition, ensuring improved farmer linkages and market access across the Northeastern region."
-          },
-          {
-            title: "SCOJ FOODS – Frozen Food Manufacturing Facility",
-            img: "/scoj.png",
-            location: "Mehsana, Gujarat",
-            scope: "End-to-End Project Management",
-            status: "Ongoing",
-            desc: "Abhyuday provided comprehensive consultancy and project management services for Scoj Foods' modern frozen food manufacturing facility in Mehsana, Gujarat. The project encompassed master planning, process design, and infrastructure development for a state-of-the-art plant producing frozen fries, RTE snacks, and parathas. Focused on quality, efficiency, and sustainability, the facility integrates advanced food technology and stringent hygiene systems to deliver safe, nutritious, and high-quality frozen food products to households across India."
-          },
-        ].map((project, index) => (
-          <!-- Clean Modern Card Design -->
-          <div class="group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
+      <div class="space-y-16" id="projects-container">
+        {projects.map((project) => (
+          <div 
+            class="project-card group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden"
+            data-status={project.status}
+          >
             <div class="lg:flex">
-              <!-- Image Section -->
               <div class="lg:w-5/12 relative">
                 <div class="relative h-72 lg:h-full overflow-hidden">
                   <img
@@ -90,7 +113,6 @@ import Layout from "../layout/Layout.astro";
                   <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 
-                <!-- Status Badge -->
                 <div class="absolute top-4 left-4">
                   <span class={`px-3 py-2 rounded-lg text-sm font-semibold backdrop-blur-sm ${
                     project.status === 'Completed' 
@@ -101,10 +123,9 @@ import Layout from "../layout/Layout.astro";
                   </span>
                 </div>
                 
-                <!-- Location Badge -->
                 <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
                   <div class="flex items-center space-x-2">
-                    <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 text-green-700" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                     </svg>
                     <span class="text-sm font-medium text-gray-700">{project.location}</span>
@@ -112,12 +133,9 @@ import Layout from "../layout/Layout.astro";
                 </div>
               </div>
 
-              <!-- Content Section -->
               <div class="lg:w-7/12 p-8 lg:p-10">
-                <!-- Header -->
                 <div class="mb-6">
                   <div class="flex items-center gap-3 mb-4">
-                    
                     <span class="px-4 py-2 bg-gray-50 text-gray-700 text-sm font-semibold rounded-full border border-gray-200">
                       {project.scope}
                     </span>
@@ -127,57 +145,133 @@ import Layout from "../layout/Layout.astro";
                   </h3>
                 </div>
 
-                <!-- Description -->
                 <div class="prose prose-lg text-gray-600 leading-relaxed">
                   <p class="text-gray-700">{project.desc}</p>
                 </div>
               </div>
             </div>
 
-            <!-- Accent Border -->
             <div class={`h-1 ${
               project.status === 'Completed' 
-                ? 'bg-gradient-to-r from-green-400 to-emerald-500' 
+                ? 'bg-gradient-to-r from-green-500 to-green-700' 
                 : 'bg-gradient-to-r from-blue-400 to-cyan-500'
             }`}></div>
           </div>
         ))}
+
+        <div id="no-projects" class="hidden text-center py-10">
+            <p class="text-xl text-gray-500">No projects found in this category.</p>
+        </div>
+
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="bg-gradient-to-r from-emerald-900 to-green-800 py-20">
+    <section class="bg-gradient-to-r from-green-900 to-green-800 py-20">
       <div class="max-w-4xl mx-auto text-center px-6">
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Project?</h2>
-        <p class="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-xl text-green-100 mb-8 max-w-2xl mx-auto leading-relaxed">
           Let's collaborate to build the next landmark in India's agro-processing infrastructure.
         </p>
         <div class="flex justify-center">
-  <a href="/#contact">
-    <button class="animated-button">
-
-  <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-  <span class="text">Get In Touch</span>
-  <span class="circle"></span>
-  <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-    ></path>
-  </svg>
-</button>
-
-        </a>
+          <a href="/#contact">
+            <button class="animated-button">
+              <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+              <span class="text">Get In Touch</span>
+              <span class="circle"></span>
+              <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+            </button>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 </Layout>
 
+<script>
+  document.addEventListener('astro:page-load', () => {
+    // We cast NodeListOf to ensure TypeScript knows these are HTMLElements
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const noProjectsMsg = document.getElementById('no-projects');
+    const sliderPill = document.getElementById('slider-pill');
+
+    if (!sliderPill || filterButtons.length === 0) return;
+
+    // FIX 1: Explicitly type the parameter as HTMLElement
+    function updateSlider(targetBtn: HTMLElement) {
+      if (!sliderPill) return;
+
+      const leftPos = targetBtn.offsetLeft;
+      const width = targetBtn.offsetWidth;
+
+      sliderPill.style.width = `${width}px`;
+      sliderPill.style.transform = `translateX(${leftPos}px)`;
+      
+      sliderPill.style.opacity = '1';
+      sliderPill.style.left = '0px'; 
+    }
+
+    // FIX 2: Cast the querySelector result to HTMLElement so it matches updateSlider's expectation
+    const activeBtn = (document.querySelector('.filter-btn.text-white') as HTMLElement) || (filterButtons[0] as HTMLElement);
+    
+    setTimeout(() => {
+        if(activeBtn) updateSlider(activeBtn);
+    }, 50);
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        // FIX 3: Cast currentTarget to HTMLElement. 
+        // This tells TS: "Trust me, the thing I clicked is an HTML element, not null."
+        const clickedBtn = e.currentTarget as HTMLElement;
+
+        updateSlider(clickedBtn);
+
+        filterButtons.forEach(btn => {
+          btn.classList.remove('text-white');
+          btn.classList.add('text-gray-600');
+          btn.classList.add('hover:text-green-800');
+        });
+
+        // Now these lines work because clickedBtn is typed as HTMLElement
+        clickedBtn.classList.remove('text-gray-600', 'hover:text-green-800');
+        clickedBtn.classList.add('text-white');
+
+        const filterValue = clickedBtn.getAttribute('data-filter');
+        let visibleCount = 0;
+
+        projectCards.forEach(card => {
+          const status = card.getAttribute('data-status');
+          
+          if (filterValue === 'all' || status === filterValue) {
+            card.classList.remove('hidden');
+            card.classList.add('animate-fade-in'); 
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+            card.classList.remove('animate-fade-in');
+          }
+        });
+
+        if (visibleCount === 0) {
+            noProjectsMsg?.classList.remove('hidden');
+        } else {
+            noProjectsMsg?.classList.add('hidden');
+        }
+      });
+    });
+    
+    window.addEventListener('resize', () => {
+        const currentActive = document.querySelector('.filter-btn.text-white') as HTMLElement;
+        if(currentActive) updateSlider(currentActive);
+    });
+  });
+</script>
+
 <style>
-  /* Remove is:global to prevent affecting navbar */
   html {
     scroll-behavior: smooth;
   }
@@ -189,97 +283,102 @@ import Layout from "../layout/Layout.astro";
   .prose p:last-child {
     margin-bottom: 0;
   }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
 
+  /* Animated Button Styles */
+  .animated-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 100px;
+    font-weight: 600;
+    color: greenyellow;
+    box-shadow: 0 0 0 2px greenyellow;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
+  .animated-button svg {
+    position: absolute;
+    width: 24px;
+    fill: greenyellow;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-  /* From Uiverse.io by gharsh11032000 */ 
-.animated-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 16px 36px;
-  border: 4px solid;
-  border-color: transparent;
-  font-size: 16px;
-  background-color: inherit;
-  border-radius: 100px;
-  font-weight: 600;
-  color: greenyellow;
-  box-shadow: 0 0 0 2px greenyellow;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
+  .animated-button .arr-1 {
+    right: 16px;
+  }
 
-.animated-button svg {
-  position: absolute;
-  width: 24px;
-  fill: greenyellow;
-  z-index: 9;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
+  .animated-button .arr-2 {
+    left: -25%;
+  }
 
-.animated-button .arr-1 {
-  right: 16px;
-}
+  .animated-button .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-.animated-button .arr-2 {
-  left: -25%;
-}
+  .animated-button .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-.animated-button .circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: greenyellow;
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
+  .animated-button:hover {
+    box-shadow: 0 0 0 12px transparent;
+    color: #212121;
+    border-radius: 12px;
+  }
 
-.animated-button .text {
-  position: relative;
-  z-index: 1;
-  transform: translateX(-12px);
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
+  .animated-button:hover .arr-1 {
+    right: -25%;
+  }
 
-.animated-button:hover {
-  box-shadow: 0 0 0 12px transparent;
-  color: #212121;
-  border-radius: 12px;
-}
+  .animated-button:hover .arr-2 {
+    left: 16px;
+  }
 
-.animated-button:hover .arr-1 {
-  right: -25%;
-}
+  .animated-button:hover .text {
+    transform: translateX(12px);
+  }
 
-.animated-button:hover .arr-2 {
-  left: 16px;
-}
+  .animated-button:hover svg {
+    fill: #212121;
+  }
 
-.animated-button:hover .text {
-  transform: translateX(12px);
-}
+  .animated-button:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px greenyellow;
+  }
 
-.animated-button:hover svg {
-  fill: #212121;
-}
-
-.animated-button:active {
-  scale: 0.95;
-  box-shadow: 0 0 0 4px greenyellow;
-}
-
-.animated-button:hover .circle {
-  width: 220px;
-  height: 220px;
-  opacity: 1;
-}
-
+  .animated-button:hover .circle {
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+  }
 </style>
